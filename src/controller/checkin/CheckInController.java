@@ -28,4 +28,18 @@ public class CheckInController {
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
         HomeController.rootStage.setTitle("Customer Info");
     }
+
+    public void goToManageRoom(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/room/room.fxml"));
+
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Manage Room");
+    }
+
+    public void goToBills(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills.fxml"));
+
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Bill Details");
+    }
 }

@@ -19,7 +19,7 @@
             <Image url="@../../images/home1.jpeg" />
          </image>
       </ImageView>
-      <Button onAction="#goToHome" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="HOME">
+      <Button mnemonicParsing="false" onAction="#goToHome" prefHeight="40.0" prefWidth="150.0" text="HOME">
          <graphic>
             <ImageView fitHeight="20" fitWidth="30">
                <image>
@@ -31,7 +31,7 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Button>
-      <Button onAction="#goToCheckIn" layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check-in">
+      <Button layoutX="150.0" mnemonicParsing="false" onAction="#goToCheckIn" prefHeight="40.0" prefWidth="150.0" text="Check-in">
          <graphic>
             <ImageView fitHeight="20" fitWidth="30">
                <image>
@@ -43,7 +43,7 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Button>
-      <Button onAction="#goToService" layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Service">
+      <Button layoutX="300.0" mnemonicParsing="false" onAction="#goToService" prefHeight="40.0" prefWidth="150.0" text="Service">
          <graphic>
             <ImageView fitHeight="20" fitWidth="30">
                <image>
@@ -55,7 +55,7 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Button>
-      <Button onAction="#goToManageRoom" layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Rooms">
+      <Button layoutX="450.0" mnemonicParsing="false" onAction="#goToManageRoom" prefHeight="40.0" prefWidth="150.0" text="Rooms">
          <graphic>
             <ImageView fitHeight="20" fitWidth="30">
                <image>
@@ -67,7 +67,7 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Button>
-      <Button onAction="#goToBillDetails" layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Bills">
+      <Button layoutX="600.0" mnemonicParsing="false" onAction="#goToBillDetails" prefHeight="40.0" prefWidth="150.0" text="Bills">
          <graphic>
             <ImageView fitHeight="20" fitWidth="30">
                <image>
@@ -155,18 +155,8 @@
                   <Line endX="146.0" layoutX="-3.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="315.0" layoutX="121.0" layoutY="281.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <ComboBox layoutX="96.0" layoutY="61.0" prefHeight="33.0" prefWidth="281.0" />
-                  <Button layoutX="151.0" layoutY="118.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Search" />
-                  <Label layoutX="42.0" layoutY="165.0" prefHeight="40.0" prefWidth="154.0" text="Use the service">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="93.0" layoutY="212.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="281.0" style="-fx-background-color: #303f9f; -fx-border-color: white;" text="Service" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="19.0" />
-                     </font>
-                  </Button>
+                  <ComboBox layoutX="88.0" layoutY="92.0" prefHeight="33.0" prefWidth="281.0" />
+                  <Button layoutX="142.0" layoutY="172.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Search" />
                   <Label layoutX="62.0" layoutY="289.0" prefHeight="40.0" prefWidth="115.0" text="Handle">
                      <font>
                         <Font name="Palatino Linotype Bold" size="27.0" />

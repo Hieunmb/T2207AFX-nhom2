@@ -9,8 +9,11 @@ import javafx.stage.Stage;
 public class HomeController {
     public static Stage rootStage;
 
-    public void goToManageRoom(ActionEvent event) {
+    public void goToManageRoom(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/room/room.fxml"));
 
+        rootStage.setScene(new Scene(root, 1200, 720));
+        rootStage.setTitle("Manage Room");
     }
 
     public void goToCheckIn(ActionEvent event) throws Exception{
@@ -31,7 +34,7 @@ public class HomeController {
         Parent root = FXMLLoader.load(getClass().getResource("../resources/bills/bills.fxml"));
 
         rootStage.setScene(new Scene(root, 1200, 720));
-        rootStage.setTitle("Customer Info");
+        rootStage.setTitle("Bill Details");
     }
 
     public void goToService(ActionEvent event) throws Exception{
