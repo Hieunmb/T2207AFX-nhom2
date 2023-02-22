@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
@@ -24,6 +25,7 @@ public class CustomerInfoController implements Initializable {
         ObservableList<String> gt = FXCollections.observableArrayList();
         gt.add("Male");
         gt.add("Female");
+        Collections.sort(gt, ((o1, o2) -> o1.compareTo(o2)));
         cbGender.setItems(gt);
 
         ObservableList<String> qt = FXCollections.observableArrayList();
@@ -156,6 +158,7 @@ public class CustomerInfoController implements Initializable {
         qt.add("South Africa");
         qt.add("Zambia");
         qt.add("Zimbabwe");
+        Collections.sort(qt, ((o1, o2) -> o1.compareTo(o2)));
         cbNationality.setItems(qt);
     }
 
@@ -164,15 +167,23 @@ public class CustomerInfoController implements Initializable {
         HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
-    public void goToCheckIn(ActionEvent actionEvent) {
+    public void goToCheckIn(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/checkin/checkin.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
-    public void goToService(ActionEvent actionEvent) {
+    public void goToService(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/service/service.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
-    public void goToManageRoom(ActionEvent actionEvent) {
+    public void goToManageRoom(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
-    public void goToBillDetails(ActionEvent actionEvent) {
+    public void goToBillDetails(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 }
