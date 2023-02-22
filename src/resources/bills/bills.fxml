@@ -26,7 +26,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check-in">
+      <Button onAction="#goToCheckin" layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check-in">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -38,7 +38,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Service">
+      <Button onAction="#goToService" layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Service">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -50,7 +50,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Rooms">
+      <Button onAction="#goToManageRoom" layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Rooms">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -62,7 +62,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Customers">
+      <Button onAction="#goToCustomer" layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Customers">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
