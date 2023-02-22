@@ -12,7 +12,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.checkin.CheckInController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.customer_info.CustomerInfoController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1200.0" opacity="0.59" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -31,11 +31,11 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Customers">
+      <Button layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check-in">
          <graphic>
             <ImageView fitHeight="20" fitWidth="30">
                <image>
-                  <Image url="@../../images/support.png" />
+                  <Image url="@../../images/check-in(1).png" />
                </image>
             </ImageView>
          </graphic>
@@ -79,14 +79,14 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="880.0" layoutY="5.0" prefHeight="70.0" prefWidth="320.0" text="CHECK IN" textAlignment="CENTER" AnchorPane.leftAnchor="880.0">
+      <Label alignment="CENTER" layoutX="880.0" layoutY="5.0" prefHeight="70.0" prefWidth="320.0" text="CUSTOMER" textAlignment="CENTER" AnchorPane.leftAnchor="880.0">
          <font>
             <Font name="Palatino Linotype Bold" size="35.0" />
          </font>
          <graphic>
             <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/check-in(1).png" />
+                  <Image url="@../../images/support.png" />
                </image>
             </ImageView>
          </graphic>
@@ -95,9 +95,9 @@
          <children>
             <Pane prefHeight="343.0" prefWidth="757.0">
                <children>
-                  <Line endX="450.0" layoutX="275.0" layoutY="15.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="450.0" layoutX="275.0" layoutY="15.0" scaleY="2.0" startX="60.0" stroke="#2212d7" />
                   <Line endX="-70.0" layoutX="120.0" layoutY="15.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Label layoutX="53.0" layoutY="-6.0" prefHeight="40.0" prefWidth="115.0" text="Check In">
+                  <Label layoutX="53.0" layoutY="-6.0" prefHeight="40.0" prefWidth="281.0" text="Customer Information">
                      <font>
                         <Font name="Palatino Linotype Bold" size="27.0" />
                      </font>
@@ -105,73 +105,49 @@
                   <Line endX="195.0" layoutX="-27.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="195.0" layoutX="678.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Label layoutX="35.0" layoutY="43.0" prefHeight="40.0" prefWidth="130.0" text="Customer's ID">
+                  <Label layoutX="53.0" layoutY="34.0" prefHeight="40.0" prefWidth="154.0" text="Customer's Name">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="35.0" layoutY="94.0" prefHeight="40.0" prefWidth="154.0" text="Customer's Name">
+                  <TextField layoutX="216.0" layoutY="38.0" prefHeight="33.0" prefWidth="456.0" promptText="Customer's Name" />
+                  <Label layoutX="53.0" layoutY="83.0" prefHeight="40.0" prefWidth="154.0" text="Identity Card">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="35.0" layoutY="144.0" prefHeight="40.0" prefWidth="130.0" text="Check In Date">
+                  <Label layoutX="53.0" layoutY="229.0" prefHeight="40.0" prefWidth="154.0" text="Gender">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="35.0" layoutY="247.0" prefHeight="40.0" prefWidth="130.0" text="Note">
+                  <Label layoutX="428.0" layoutY="229.0" prefHeight="40.0" prefWidth="45.0" text="Age">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="35.0" layoutY="197.0" prefHeight="40.0" prefWidth="138.0" text="Check Out Date">
+                  <Label layoutX="53.0" layoutY="182.0" prefHeight="40.0" prefWidth="154.0" text="Phone Number">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="177.0" layoutY="46.0" prefHeight="33.0" prefWidth="220.0" />
-                  <TextField layoutX="189.0" layoutY="99.0" prefHeight="33.0" prefWidth="206.0" />
-                  <TextArea layoutX="174.0" layoutY="247.0" prefHeight="50.0" prefWidth="220.0" />
-                  <DatePicker layoutX="176.0" layoutY="149.0" prefHeight="31.0" prefWidth="220.0" />
-                  <DatePicker layoutX="175.0" layoutY="202.0" prefHeight="31.0" prefWidth="220.0" />
-                  <Label layoutX="408.0" layoutY="43.0" prefHeight="40.0" prefWidth="97.0" text="Room's ID">
+                  <Label layoutX="53.0" layoutY="133.0" prefHeight="40.0" prefWidth="154.0" text="Nationality">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="405.0" layoutY="198.0" prefHeight="40.0" prefWidth="69.0" text="Floor ">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="408.0" layoutY="144.0" prefHeight="40.0" prefWidth="63.0" text="Status">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="408.0" layoutY="94.0" prefHeight="40.0" prefWidth="122.0" text="Room's Name">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="405.0" layoutY="247.0" prefHeight="40.0" prefWidth="104.0" text="Room Type">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <ComboBox layoutX="518.0" layoutY="46.0" prefHeight="33.0" prefWidth="201.0" />
-                  <TextField layoutX="530.0" layoutY="98.0" prefHeight="33.0" prefWidth="189.0" />
-                  <ComboBox layoutX="516.0" layoutY="148.0" prefHeight="33.0" prefWidth="203.0" />
-                  <ComboBox layoutX="514.0" layoutY="201.0" prefHeight="33.0" prefWidth="205.0" />
-                  <ComboBox layoutX="513.0" layoutY="251.0" prefHeight="33.0" prefWidth="206.0" />
+                  <TextField layoutX="216.0" layoutY="185.0" prefHeight="33.0" prefWidth="456.0" promptText="Phone Number" />
+                  <TextField layoutX="216.0" layoutY="86.0" prefHeight="33.0" prefWidth="456.0" promptText="Identity Card" />
+                  <ComboBox fx:id="cbGender" layoutX="216.0" layoutY="232.0" prefHeight="33.0" prefWidth="190.0" promptText="Gender" />
+                  <TextField layoutX="482.0" layoutY="232.0" prefHeight="33.0" prefWidth="190.0" promptText="Age" />
+                  <ComboBox fx:id="cbNationality" layoutX="216.0" layoutY="136.0" prefHeight="33.0" prefWidth="456.0" promptText="Nationality" />
                </children>
             </Pane>
             <Pane layoutX="736.0" prefHeight="343.0" prefWidth="456.0">
                <children>
-                  <Line endX="71.0" layoutX="365.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="71.0" layoutX="365.0" layoutY="35.0" scaleY="2.0" startX="-60.0" stroke="#2212d7" />
                   <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Label layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="202.0" text="Booking Search">
+                  <Label layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="248.0" text="Finding Customers">
                      <font>
                         <Font name="Palatino Linotype Bold" size="27.0" />
                      </font>
@@ -200,9 +176,9 @@
             </Pane>
             <Pane layoutY="308.0" prefHeight="343.0" prefWidth="757.0">
                <children>
-                  <Line endX="390.0" layoutX="334.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="390.0" layoutX="334.0" layoutY="35.0" scaleY="2.0" startX="-80.0" stroke="#2212d7" />
                   <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Label layoutX="60.0" layoutY="14.0" prefHeight="40.0" prefWidth="185.0" text="Booking List">
+                  <Label layoutX="60.0" layoutY="14.0" prefHeight="40.0" prefWidth="214.0" text="Customers List">
                      <font>
                         <Font name="Palatino Linotype Bold" size="27.0" />
                      </font>
@@ -213,18 +189,19 @@
                   <TableView layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
                      <columns>
                         <TableColumn prefWidth="51.0" text="ID" />
-                        <TableColumn prefWidth="143.0" text="Customer's Name" />
-                        <TableColumn prefWidth="145.0" text="Room's Name" />
-                        <TableColumn prefWidth="122.0" text="Room Type" />
-                        <TableColumn prefWidth="118.0" text="Check In Date" />
-                        <TableColumn prefWidth="117.0" text="Check Out Date" />
+                        <TableColumn prefWidth="215.0" text="Customer's Name" />
+                        <TableColumn prefWidth="105.0" text="Identity Card" />
+                        <TableColumn prefWidth="100.0" text="Nationality" />
+                        <TableColumn prefWidth="110.0" text="Phone Number" />
+                        <TableColumn prefWidth="59.0" text="Gender" />
+                        <TableColumn prefWidth="56.0" text="Age" />
                      </columns>
                   </TableView>
                </children>
             </Pane>
             <Pane layoutX="744.0" layoutY="314.0" prefHeight="343.0" prefWidth="456.0">
                <children>
-                  <Line endX="162.0" layoutX="274.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="162.0" layoutX="274.0" scaleY="2.0" startX="-120.0" stroke="#2212d7" />
                   <Line endX="-70.0" layoutX="120.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="202.0" layoutX="-31.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="315.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
