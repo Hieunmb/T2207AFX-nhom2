@@ -55,7 +55,7 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="450.0" mnemonicParsing="false"  prefHeight="40.0" prefWidth="150.0" text="Rooms">
+        <Button layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Rooms">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
@@ -201,12 +201,13 @@
                         <TableView layoutX="24.0" layoutY="54.0" prefHeight="253.0" prefWidth="697.0">
                             <columns>
                                 <TableColumn prefWidth="72.0" text="ID room" />
-                                <TableColumn prefWidth="110.0" text="Room's Name" />
-                                <TableColumn prefWidth="141.0" text="Kind of Room" />
-                                <TableColumn prefWidth="110.0" text="Room Type" />
-                                <TableColumn prefWidth="88.0" text="Status" />
-                                <TableColumn prefWidth="102.0" text="Room Rates" />
-                                <TableColumn prefWidth="81.0" text="Staff's ID" />
+                                <TableColumn prefWidth="105.0" text="Room's Name" />
+                                <TableColumn prefWidth="103.0" text="Kind of Room" />
+                                <TableColumn prefWidth="97.0" text="Room Type" />
+                                <TableColumn prefWidth="55.0" text="Status" />
+                                <TableColumn prefWidth="92.0" text="Room Rates" />
+                                <TableColumn prefWidth="76.0" text="Staff's ID" />
+                        <TableColumn prefWidth="121.0" text="Staff's Name" />
                             </columns>
                         </TableView>
                     </children>
