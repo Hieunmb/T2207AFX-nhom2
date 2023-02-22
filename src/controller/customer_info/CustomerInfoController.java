@@ -160,7 +160,19 @@ public class CustomerInfoController implements Initializable {
     }
 
     public void goToHome(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../resources/home1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/home1.fxml"));
         HomeController.rootStage.setScene(new Scene(root,1200,720));
+    }
+
+    public void goToCheckIn(ActionEvent actionEvent) {
+    }
+
+    public void goToService(ActionEvent actionEvent) {
+    }
+
+    public void goToManageRoom(ActionEvent actionEvent) {
+    }
+
+    public void goToBillDetails(ActionEvent actionEvent) {
     }
 }
