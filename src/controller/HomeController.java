@@ -27,8 +27,11 @@ public class HomeController {
         rootStage.setTitle("Customer Info");
     }
 
-    public void goToBill(ActionEvent event) {
+    public void goToBill(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/bills/bills.fxml"));
 
+        rootStage.setScene(new Scene(root, 1200, 720));
+        rootStage.setTitle("Customer Info");
     }
 
     public void goToService(ActionEvent event) throws Exception{
