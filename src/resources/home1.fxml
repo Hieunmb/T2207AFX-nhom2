@@ -52,7 +52,7 @@
                     <children>
                         <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="26.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/check-in (1).png" />
+                                <Image url="@../images/check-in(1).png" />
                             </image>
                         </ImageView>
                         <Text layoutX="32.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-In" textAlignment="CENTER">
