@@ -19,7 +19,7 @@
             <Image url="@../../images/home1.jpeg" />
          </image>
       </ImageView>
-      <Button onAction="#goToHome" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="HOME">
+      <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="HOME">
          <graphic>
             <ImageView fitHeight="20" fitWidth="30">
                <image>
