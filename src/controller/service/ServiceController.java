@@ -13,7 +13,9 @@ public class ServiceController {
         HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
-    public void goToCheckIn(ActionEvent event) {
+    public void goToCheckIn(ActionEvent event) throws  Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/checkin/checkin.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
     public void goToRoom(ActionEvent event) {
