@@ -31,7 +31,10 @@ public class HomeController {
 
     }
 
-    public void goToService(ActionEvent event) {
+    public void goToService(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/service/service.fxml"));
 
+        rootStage.setScene(new Scene(root, 1200, 720));
+        rootStage.setTitle("Service");
     }
 }

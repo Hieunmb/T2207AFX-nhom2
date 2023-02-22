@@ -31,7 +31,7 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Customers">
+        <Button onAction="#goToCustomer" layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Customers">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
@@ -43,7 +43,7 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Service">
+        <Button onAction="#goToService" layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Service">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
