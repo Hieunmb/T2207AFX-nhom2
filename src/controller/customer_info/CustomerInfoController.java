@@ -25,6 +25,7 @@ public class CustomerInfoController implements Initializable {
         ObservableList<String> gt = FXCollections.observableArrayList();
         gt.add("Male");
         gt.add("Female");
+        Collections.sort(gt, ((o1, o2) -> o1.compareTo(o2)));
         cbGender.setItems(gt);
 
         ObservableList<String> qt = FXCollections.observableArrayList();
