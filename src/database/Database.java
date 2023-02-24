@@ -10,7 +10,7 @@ public class Database {
 
     private Database() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionString = "jdbc:mysql://localhost:3306/t2207a";
+        String connectionString = "jdbc:mysql://localhost:3306/hotel";
         String user = "root";
         String password = "";
         Connection conn = DriverManager.getConnection(connectionString, user, password);
