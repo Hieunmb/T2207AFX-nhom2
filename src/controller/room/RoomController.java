@@ -1,6 +1,7 @@
 package controller.room;
 
 import controller.HomeController;
+import entities.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,11 +21,23 @@ import java.util.ResourceBundle;
 public class RoomController implements Initializable {
     public ComboBox<String> RoomType ;
     public ComboBox<String> Status ;
-    public ComboBox Floor;
+    public ComboBox<String> Floor;
+    public TableColumn<Room, String> rName;
+    public TableColumn<Room , String> rRoomType;
+    public TableColumn<Room , String> rStatus;
+    public TableColumn<Room , Integer> rRoomRates;
+    public TableColumn<Room , String> rFloor;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        rName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        rRoomType.setCellValueFactory(new PropertyValueFactory<>("room type"));
+        rStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        rRoomRates.setCellValueFactory(new PropertyValueFactory<>("room rates"));
+        rFloor.setCellValueFactory(new PropertyValueFactory<>("floor"));
+
 
         ObservableList<String> Fl = FXCollections.observableArrayList();
         Fl.add("1");

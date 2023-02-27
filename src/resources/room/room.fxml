@@ -210,11 +210,11 @@
                               stroke="#2212d7"/>
                         <TableView layoutX="24.0" layoutY="54.0" prefHeight="253.0" prefWidth="697.0">
                             <columns>
-                                <TableColumn prefWidth="105.0" text="Room's Name"/>
-                                <TableColumn prefWidth="145.0" text="Room Type"/>
-                                <TableColumn prefWidth="126.0" text="Status"/>
-                                <TableColumn prefWidth="153.0" text="Room Rates"/>
-                                <TableColumn prefWidth="167.0" text="Floor"/>
+                                <TableColumn fx:id="rName" prefWidth="105.0" text="Room's Name"/>
+                                <TableColumn fx:id="rRoomType" prefWidth="145.0" text="Room Type"/>
+                                <TableColumn fx:id="rStatus" prefWidth="126.0" text="Status"/>
+                                <TableColumn fx:id="rRoomRates" prefWidth="153.0" text="Room Rates"/>
+                                <TableColumn fx:id="rFloor" prefWidth="167.0" text="Floor"/>
                             </columns>
                         </TableView>
                     </children>
