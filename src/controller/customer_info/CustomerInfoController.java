@@ -211,7 +211,7 @@ public class CustomerInfoController implements Initializable {
     }
 
     public void goToBillDetails(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills.fxml"));
         HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 }
