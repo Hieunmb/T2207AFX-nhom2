@@ -1,6 +1,9 @@
 package controller.customer_info;
 
 import controller.HomeController;
+import daopatern.CusDao;
+import entities.CheckIn;
+import entities.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,9 +12,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -19,9 +26,30 @@ public class CustomerInfoController implements Initializable {
 
     public ComboBox<String> cbGender;
     public ComboBox<String> cbNationality;
+    public TableView<Customer> tbCus;
+    public TableColumn<Customer, Integer> cID;
+    public TableColumn<Customer, String> cName;
+    public TableColumn<Customer, String> cCccd;
+    public TableColumn<Customer, String> cNationality;
+    public TableColumn<Customer, String> cPhone;
+    public TableColumn<Customer, String> cGender;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        cID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cCccd.setCellValueFactory(new PropertyValueFactory<>("cccd"));
+        cNationality.setCellValueFactory(new PropertyValueFactory<>("nationality"));
+        cPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        cGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
+        CusDao cd = CusDao.getInstance();
+        ArrayList<Customer> list = cd.getAll();
+        tbCus.getItems().addAll(list);
+        tbCus.refresh();
+
         ObservableList<String> gt = FXCollections.observableArrayList();
         gt.add("Male");
         gt.add("Female");
@@ -183,7 +211,7 @@ public class CustomerInfoController implements Initializable {
     }
 
     public void goToBillDetails(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills.fxml"));
         HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 }

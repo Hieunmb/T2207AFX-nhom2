@@ -176,14 +176,14 @@
                   <Line endX="175.0" layoutX="-18.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="175.0" layoutX="687.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <TableView layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
+                  <TableView fx:id="tbCus" layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
                      <columns>
-                        <TableColumn prefWidth="51.0" text="ID" />
-                        <TableColumn prefWidth="215.0" text="Customer's Name" />
-                        <TableColumn prefWidth="105.0" text="Identity Card" />
-                        <TableColumn prefWidth="100.0" text="Nationality" />
-                        <TableColumn prefWidth="110.0" text="Phone Number" />
-                        <TableColumn prefWidth="59.0" text="Gender" />
+                        <TableColumn fx:id="cID" prefWidth="51.0" text="ID" />
+                        <TableColumn fx:id="cName" prefWidth="215.0" text="Customer's Name" />
+                        <TableColumn fx:id="cCccd" prefWidth="105.0" text="Identity Card" />
+                        <TableColumn fx:id="cNationality" prefWidth="100.0" text="Nationality" />
+                        <TableColumn fx:id="cPhone" prefWidth="110.0" text="Phone Number" />
+                        <TableColumn fx:id="cGender" prefWidth="59.0" text="Gender" />
                         <TableColumn prefWidth="56.0" text="Age" />
                      </columns>
                   </TableView>
