@@ -14,7 +14,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         try {
             HomeController.rootStage = primaryStage;
             Parent root = FXMLLoader.load(getClass().getResource("resources/home1.fxml"));
