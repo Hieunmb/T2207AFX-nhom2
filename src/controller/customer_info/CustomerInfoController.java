@@ -11,15 +11,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
@@ -33,7 +35,132 @@ public class CustomerInfoController implements Initializable {
     public TableColumn<Customer, String> cNationality;
     public TableColumn<Customer, String> cPhone;
     public TableColumn<Customer, String> cGender;
+    public TextField txtName;
+    public TextField txtPhone;
+    public TextField txtIdentityCard;
+    public ComboBox<Customer> cbFind;
 
+
+    public void addCus(ActionEvent event) {
+        try {
+            String name = txtName.getText();
+            String cccd = txtIdentityCard.getText();
+            String nationality = cbNationality.getValue();
+            String phone = txtPhone.getText();
+            String gender = cbGender.getValue();
+            if (name.isEmpty() || cccd.isEmpty() || nationality.isEmpty() || gender.isEmpty() || phone.isEmpty()) {
+                throw new Exception("Please complete all information");
+            }
+            Customer c1 = new Customer(null, name, cccd, nationality, phone, gender);
+            CusDao cd = CusDao.getInstance();
+            cd.create(c1);
+
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
+        refreshForm(null);
+        tbCus.getItems().setAll(CusDao.getInstance().getAll());
+        tbCus.refresh();
+    }
+
+    public void editCus(ActionEvent event) {
+        Customer customer = tbCus.getSelectionModel().getSelectedItem();
+        if (customer == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("Please select a user to edit.");
+            alert.showAndWait();
+        } else {
+            try {
+                customer.setName(txtName.getText());
+                customer.setCccd(txtIdentityCard.getText());
+                customer.setNationality(cbNationality.getValue());
+                customer.setGender(cbGender.getValue());
+
+                if (customer.getName().isEmpty() || customer.getCccd().isEmpty() || customer.getNationality().isEmpty() || customer.getGender().isEmpty() || customer.getPhone().isEmpty()) {
+                    throw new Exception("Please complete all information");
+                }
+
+                CusDao cd = CusDao.getInstance();
+                cd.update(customer);
+                refreshForm(null);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Edit customer");
+                alert.setContentText("Edit cuccess!");
+                alert.show();
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(e.getMessage());
+                alert.show();
+            }
+        }
+        tbCus.getItems().setAll(CusDao.getInstance().getAll());
+        tbCus.refresh();
+
+    }
+
+    public void deleteCus(ActionEvent event) {
+        Customer customer = tbCus.getSelectionModel().getSelectedItem();
+        if (customer == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("Please select a user to delete.");
+            alert.showAndWait();
+        } else {
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+            confirm.setTitle("Confirm delete");
+            confirm.setHeaderText("Confirm delete");
+            confirm.setContentText("Are you sure you want to delete this user?");
+            Optional<ButtonType> result = confirm.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                try {
+                    CusDao cd = CusDao.getInstance();
+                    cd.delete(customer);
+                    refreshForm(null);
+                } catch (Exception e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(e.getMessage());
+                    alert.show();
+                }
+            }
+        }
+        tbCus.getItems().setAll(CusDao.getInstance().getAll());
+        tbCus.refresh();
+
+    }
+    public void unselect(ActionEvent event) {
+        tbCus.getSelectionModel().clearSelection();
+        refreshForm(null);
+        cbFind.getSelectionModel().clearSelection();
+        tbCus.getItems().setAll(CusDao.getInstance().getAll());
+        tbCus.refresh();
+    }
+
+    public void searchCus(ActionEvent event) {
+        Customer customer = cbFind.getSelectionModel().getSelectedItem();
+        if (customer == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("Please select a user to find.");
+            alert.showAndWait();
+        } else {
+            try {
+                Integer id = customer.getId();
+                CusDao cusDao = CusDao.getInstance();
+                Customer c = cusDao.find(id);
+                ArrayList<Customer> list = new ArrayList<>();
+                list.add(c);
+                tbCus.getItems().setAll(list);
+                tbCus.refresh();
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(e.getMessage());
+                alert.show();
+            }
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,6 +176,26 @@ public class CustomerInfoController implements Initializable {
         ArrayList<Customer> list = cd.getAll();
         tbCus.getItems().addAll(list);
         tbCus.refresh();
+        tbCus.setOnMouseClicked(event -> {
+            Customer selectedCustomer = tbCus.getSelectionModel().getSelectedItem();
+            if (selectedCustomer != null) {
+                txtName.setText(selectedCustomer.getName());
+                txtIdentityCard.setText(selectedCustomer.getCccd());
+                txtPhone.setText(selectedCustomer.getPhone());
+                cbNationality.setValue(selectedCustomer.getNationality());
+                cbGender.setValue(selectedCustomer.getGender());
+            }
+        });
+
+        try {
+            CusDao cusDao = CusDao.getInstance();
+            ArrayList<Customer> list1 = cusDao.getAll();
+            cbFind.getItems().addAll(list1);
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
 
         ObservableList<String> gt = FXCollections.observableArrayList();
         gt.add("Male");
@@ -192,26 +339,34 @@ public class CustomerInfoController implements Initializable {
 
     public void goToHome(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/home1.fxml"));
-        HomeController.rootStage.setScene(new Scene(root,1200,720));
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
     }
 
     public void goToCheckIn(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/checkin/checkin.fxml"));
-        HomeController.rootStage.setScene(new Scene(root,1200,720));
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
     }
 
     public void goToService(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/service/service.fxml"));
-        HomeController.rootStage.setScene(new Scene(root,1200,720));
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
     }
 
     public void goToManageRoom(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/room/room.fxml"));
-        HomeController.rootStage.setScene(new Scene(root,1200,720));
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
     }
 
     public void goToBillDetails(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/.fxml"));
-        HomeController.rootStage.setScene(new Scene(root,1200,720));
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+    }
+
+    public void refreshForm(ActionEvent event) {
+        txtName.clear();
+        txtIdentityCard.clear();
+        txtPhone.clear();
+        cbNationality.getSelectionModel().clearSelection();
+        cbGender.getSelectionModel().clearSelection();
     }
 }

@@ -1,5 +1,8 @@
 package database;
 
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -9,10 +12,13 @@ public class Database {
     private Statement statement;
 
     private Database() throws Exception {
-        Class.forName("com.mysql.jdbc.Driver");
-        String connectionString = "jdbc:mysql://localhost:3306/hotel";
-        String user = "root";
-        String password = "";
+
+        FileInputStream fis = new FileInputStream("config.txt");
+        DataInputStream dis = new DataInputStream(fis);
+        Class.forName(dis.readLine());
+        String connectionString = dis.readLine();
+        String user = dis.readLine();
+        String password = dis.readLine();
         Connection conn = DriverManager.getConnection(connectionString, user, password);
         this.statement = conn.createStatement();
     }

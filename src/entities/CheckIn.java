@@ -4,16 +4,16 @@ import java.sql.Date;
 
 public class CheckIn {
     private int id;
-    private int customer_id;
-    private int room_id;
+    private String nameCus;
+    private String nameRoom;
     private Date checkindate;
     private Date checkoutDate;
     private String note;
 
-    public CheckIn(int id, int customer_id, int room_id, Date checkindate, Date checkoutDate, String note) {
+    public CheckIn(int id, String nameCus, String nameRoom, Date checkindate, Date checkoutDate, String note) {
         this.id = id;
-        this.customer_id = customer_id;
-        this.room_id = room_id;
+        this.nameCus = nameCus;
+        this.nameRoom = nameRoom;
         this.checkindate = checkindate;
         this.checkoutDate = checkoutDate;
         this.note = note;
@@ -28,21 +28,21 @@ public class CheckIn {
         return this;
     }
 
-    public int getCustomer_id() {
-        return customer_id;
+    public String getNameCus() {
+        return nameCus;
     }
 
-    public CheckIn setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public CheckIn setNameCus(String nameCus) {
+        this.nameCus = nameCus;
         return this;
     }
 
-    public int getRoom_id() {
-        return room_id;
+    public String getNameRoom() {
+        return nameRoom;
     }
 
-    public CheckIn setRoom_id(int room_id) {
-        this.room_id = room_id;
+    public CheckIn setNameRoom(String nameRoom) {
+        this.nameRoom = nameRoom;
         return this;
     }
 

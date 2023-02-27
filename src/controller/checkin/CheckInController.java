@@ -75,8 +75,8 @@ public class CheckInController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        cCusID.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
-        cRoomID.setCellValueFactory(new PropertyValueFactory<>("room_id"));
+        cCusID.setCellValueFactory(new PropertyValueFactory<>("nameCus"));
+        cRoomID.setCellValueFactory(new PropertyValueFactory<>("nameRoom"));
         cCheckInDate.setCellValueFactory(new PropertyValueFactory<>("checkindate"));
         cCheckOutDate.setCellValueFactory(new PropertyValueFactory<>("checkoutDate"));
         cNote.setCellValueFactory(new  PropertyValueFactory<>("note"));

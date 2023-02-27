@@ -1,14 +1,14 @@
 package entities;
 
 public class Customer {
-    private int id;
+    private Integer id;
     private String name;
     private String cccd;
     private String nationality;
     private String phone;
     private String gender;
 
-    public Customer(int id, String name, String cccd, String nationality, String phone, String gender) {
+    public Customer(Integer id, String name, String cccd, String nationality, String phone, String gender) {
         this.id = id;
         this.name = name;
         this.cccd = cccd;
@@ -21,7 +21,7 @@ public class Customer {
         return id;
     }
 
-    public Customer setId(int id) {
+    public Customer setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -69,5 +69,10 @@ public class Customer {
     public Customer setGender(String gender) {
         this.gender = gender;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
     }
 }
