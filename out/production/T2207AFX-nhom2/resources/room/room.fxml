@@ -208,7 +208,7 @@
                               stroke="#2212d7"/>
                         <Line endX="175.0" layoutX="687.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <TableView layoutX="24.0" layoutY="54.0" prefHeight="253.0" prefWidth="697.0">
+                        <TableView fx:id="tbRoom" layoutX="24.0" layoutY="54.0" prefHeight="253.0" prefWidth="697.0">
                             <columns>
                                 <TableColumn fx:id="rName" prefWidth="105.0" text="Room's Name"/>
                                 <TableColumn fx:id="rRoomType" prefWidth="145.0" text="Room Type"/>

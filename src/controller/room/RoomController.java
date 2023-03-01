@@ -1,6 +1,9 @@
 package controller.room;
 
 import controller.HomeController;
+import daopatern.CusDao;
+import daopatern.RoomDao;
+import entities.Customer;
 import entities.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,10 +14,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -27,6 +32,7 @@ public class RoomController implements Initializable {
     public TableColumn<Room , String> rStatus;
     public TableColumn<Room , Integer> rRoomRates;
     public TableColumn<Room , String> rFloor;
+    public TableView<Room> tbRoom;
 
 
     @Override
@@ -37,6 +43,11 @@ public class RoomController implements Initializable {
         rStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         rRoomRates.setCellValueFactory(new PropertyValueFactory<>("room rates"));
         rFloor.setCellValueFactory(new PropertyValueFactory<>("floor"));
+
+        RoomDao rd = RoomDao.getInstance();
+        ArrayList<Room> list =rd.getAll();
+        tbRoom.getItems().addAll(list);
+        tbRoom.refresh();
 
 
         ObservableList<String> Fl = FXCollections.observableArrayList();
