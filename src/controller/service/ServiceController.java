@@ -101,6 +101,15 @@ public class ServiceController implements Initializable {
                 txtPrice.setText(selectedService.getPrice());
             }
         });
+        try {
+            ServiceDao serviceDao = ServiceDao.getInstance();
+            ArrayList<Service> list1 = serviceDao.getAll();
+            sFind.getItems().addAll(list1);
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
     }
 
     public void edit(ActionEvent event) {
@@ -137,6 +146,7 @@ public class ServiceController implements Initializable {
         tbS.refresh();
 
     }
+
 
     public void delete(ActionEvent event) {
         Service service = tbS.getSelectionModel().getSelectedItem();
