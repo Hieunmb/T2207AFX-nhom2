@@ -148,8 +148,19 @@
                         <Line endX="146.0" layoutX="-3.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="315.0" layoutX="121.0" layoutY="281.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <ComboBox fx:id="sFind" layoutX="97.0" layoutY="96.0" prefHeight="33.0" prefWidth="281.0" />
-                        <Button onAction="#search" layoutX="151.0" layoutY="197.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Search" />
+                        <ComboBox promptText="Please select service name" fx:id="sFind" layoutX="97.0" layoutY="96.0" prefHeight="33.0" prefWidth="281.0" />
+                        <Button onAction="#search" layoutX="151.0" layoutY="197.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Search">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="31.0">
+                                    <image>
+                                        <Image url="@../../images/icons8-search.gif" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font name="Arial Bold" size="19.0" />
+                            </font>
+                        </Button>
                         <Label layoutX="62.0" layoutY="289.0" prefHeight="40.0" prefWidth="115.0" text="Handle">
                             <font>
                                 <Font name="Palatino Linotype Bold" size="27.0" />
@@ -176,6 +187,11 @@
                                 <TableColumn fx:id="sPrice" prefWidth="211.0" text="Unit price" />
                             </columns>
                         </TableView>
+                        <Button layoutX="634.0" layoutY="8.0" mnemonicParsing="false" onAction="#unselect" prefHeight="32.0" prefWidth="90.0" text="unselect">
+                            <font>
+                                <Font name="Arial Bold" size="16.0" />
+                            </font>
+                        </Button>
                     </children>
                 </Pane>
                 <Pane layoutX="744.0" layoutY="314.0" prefHeight="343.0" prefWidth="456.0">

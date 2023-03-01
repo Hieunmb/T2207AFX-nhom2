@@ -200,4 +200,12 @@ public class ServiceController implements Initializable {
             }
         }
     }
+
+    public void unselect(ActionEvent event) {
+        tbS.getSelectionModel().clearSelection();
+        refreshForm(null);
+        sFind.getSelectionModel().clearSelection();
+        tbS.getItems().setAll(ServiceDao.getInstance().getAll());
+        tbS.refresh();
+    }
 }

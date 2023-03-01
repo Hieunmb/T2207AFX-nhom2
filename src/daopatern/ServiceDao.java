@@ -97,7 +97,7 @@ public class ServiceDao implements DAOInterface<Service> {
             String sql = "select * from service where id="+id;
             ResultSet rs = stt.executeQuery(sql);
             while (rs.next()) {
-                String name = rs.getString("name");
+                String name=rs.getString("name");
                 String price=rs.getString("price");
                 Service s = new Service(id, name, price);
                 return s;
@@ -105,6 +105,9 @@ public class ServiceDao implements DAOInterface<Service> {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return null;
+    }
+    public <N> Service findOne(N id){//  khi sử dụng, giá trị truyền vào sẽ là kiểu dữ liệu
         return null;
     }
 }
