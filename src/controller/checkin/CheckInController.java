@@ -15,7 +15,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -162,6 +161,7 @@ public class CheckInController implements Initializable {
         tbCheckIn.getItems().setAll(CheckInDao.getInstance().getAll());
         tbCheckIn.refresh();
         addBtn.setDisable(false);
+        cbSearch.getSelectionModel().clearSelection();
     }
 
     public void searchCheckIn(ActionEvent event) {

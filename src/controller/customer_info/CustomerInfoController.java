@@ -39,7 +39,6 @@ public class CustomerInfoController implements Initializable {
     public TextField txtPhone;
     public TextField txtIdentityCard;
     public ComboBox<Customer> cbFind;
-    public Button btnAdd;
 
 
     public void addCus(ActionEvent event) {
@@ -137,7 +136,6 @@ public class CustomerInfoController implements Initializable {
         cbFind.getSelectionModel().clearSelection();
         tbCus.getItems().setAll(CusDao.getInstance().getAll());
         tbCus.refresh();
-        btnAdd.setDisable(false);
     }
 
     public void searchCus(ActionEvent event) {
@@ -186,7 +184,6 @@ public class CustomerInfoController implements Initializable {
                 txtPhone.setText(selectedCustomer.getPhone());
                 cbNationality.setValue(selectedCustomer.getNationality());
                 cbGender.setValue(selectedCustomer.getGender());
-                btnAdd.setDisable(true);
             }
         });
 
