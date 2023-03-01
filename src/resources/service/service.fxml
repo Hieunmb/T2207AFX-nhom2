@@ -43,7 +43,7 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button onAction="#goToCustomerInfo" layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Customer Info">
+        <Button layoutX="300.0" mnemonicParsing="false" onAction="#goToCustomerInfo" prefHeight="40.0" prefWidth="150.0" text="Customer">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
@@ -110,7 +110,7 @@
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
                         </Label>
-                        <TextField layoutX="216.0" layoutY="38.0" prefHeight="70.0" prefWidth="456.0" promptText="Service Code">
+                        <TextField fx:id="txtId" layoutX="216.0" layoutY="38.0" prefHeight="70.0" prefWidth="456.0" promptText="Service Code">
                      <font>
                         <Font size="20.0" />
                      </font></TextField>
@@ -124,12 +124,12 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="216.0" layoutY="224.0" prefHeight="70.0" prefWidth="456.0" promptText="Unit price">
+                  <TextField fx:id="txtPrice" layoutX="216.0" layoutY="224.0" prefHeight="70.0" prefWidth="456.0" promptText="Unit price">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="216.0" layoutY="127.0" prefHeight="70.0" prefWidth="456.0" promptText="Service Name">
+                  <TextField fx:id="txtName" layoutX="216.0" layoutY="127.0" prefHeight="70.0" prefWidth="456.0" promptText="Service Name">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -148,8 +148,8 @@
                         <Line endX="146.0" layoutX="-3.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="315.0" layoutX="121.0" layoutY="281.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <ComboBox layoutX="97.0" layoutY="96.0" prefHeight="33.0" prefWidth="281.0" />
-                        <Button layoutX="151.0" layoutY="197.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Search" />
+                        <ComboBox fx:id="sFind" layoutX="97.0" layoutY="96.0" prefHeight="33.0" prefWidth="281.0" />
+                        <Button onAction="#search" layoutX="151.0" layoutY="197.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Search" />
                         <Label layoutX="62.0" layoutY="289.0" prefHeight="40.0" prefWidth="115.0" text="Handle">
                             <font>
                                 <Font name="Palatino Linotype Bold" size="27.0" />
@@ -169,11 +169,11 @@
                         <Line endX="175.0" layoutX="-18.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="175.0" layoutX="687.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <TableView layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
+                        <TableView fx:id="tbS" layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
                             <columns>
-                                <TableColumn prefWidth="135.0" text="Service Code" />
-                                <TableColumn prefWidth="350.0" text="Service Name" />
-                                <TableColumn prefWidth="211.0" text="Unit price" />
+                                <TableColumn fx:id="sId" prefWidth="135.0" text="Service Code" />
+                                <TableColumn fx:id="sName" prefWidth="350.0" text="Service Name" />
+                                <TableColumn fx:id="sPrice" prefWidth="211.0" text="Unit price" />
                             </columns>
                         </TableView>
                     </children>
@@ -184,7 +184,7 @@
                         <Line endX="-70.0" layoutX="120.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="202.0" layoutX="-31.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="315.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Button id="windows8" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button onAction="#add" id="windows8" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
@@ -203,7 +203,7 @@
                             </graphic>
                         </Button>
                         <Line endX="202.0" layoutX="385.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Button id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button onAction="#edit" id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
@@ -221,7 +221,7 @@
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button onAction="#refreshForm" id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
@@ -239,7 +239,7 @@
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button onAction="#delete" id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
