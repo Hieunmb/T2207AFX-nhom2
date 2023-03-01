@@ -106,7 +106,7 @@
                               stroke="#2212d7"/>
                         <Line endX="-70.0" layoutX="120.0" layoutY="15.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Label layoutX="53.0" layoutY="-6.0" prefHeight="40.0" prefWidth="115.0" text="Check In">
+                        <Label layoutX="73.0" layoutY="-6.0" prefHeight="40.0" prefWidth="115.0" text="Room">
                             <font>
                                 <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
@@ -122,7 +122,7 @@
                                 <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <TextField layoutX="168.0" layoutY="68.0" prefHeight="33.0" prefWidth="206.0"/>
+                        <TextField fx:id="txtName" layoutX="168.0" layoutY="68.0" prefHeight="33.0" prefWidth="206.0"/>
                         <Label layoutX="35.0" layoutY="142.0" prefHeight="40.0" prefWidth="105.0" text="Room Type">
                             <font>
                                 <Font name="Arial Bold" size="18.0"/>
@@ -138,17 +138,18 @@
                                 <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <ComboBox fx:id="RoomType" layoutX="168.0" layoutY="148.0" prefHeight="33.0" prefWidth="201.0"
+                        <ComboBox fx:id="cbRoomType" layoutX="168.0" layoutY="148.0" prefHeight="33.0" prefWidth="201.0"
                                   promptText="roomtype"/>
-                        <ComboBox fx:id="Status" layoutX="511.0" layoutY="68.0" prefHeight="33.0" prefWidth="203.0"
+                        <ComboBox fx:id="cbStatus" layoutX="511.0" layoutY="68.0" prefHeight="33.0" prefWidth="203.0"
                                   promptText="Status"/>
-                        <TextField layoutX="516.0" layoutY="148.0" prefHeight="33.0" prefWidth="206.0"/>
+                        <TextField fx:id="txtPrice" layoutX="516.0" layoutY="148.0" prefHeight="33.0"
+                                   prefWidth="206.0"/>
                         <Label layoutX="35.0" layoutY="212.0" prefHeight="40.0" prefWidth="105.0" text="Floor">
                             <font>
                                 <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <ComboBox fx:id="Floor" layoutX="168.0" layoutY="216.0" prefHeight="33.0" prefWidth="201.0"
+                        <ComboBox fx:id="cbFloor" layoutX="168.0" layoutY="216.0" prefHeight="33.0" prefWidth="201.0"
                                   promptText="floor"/>
                     </children>
                 </Pane>
@@ -157,7 +158,7 @@
                         <Line endX="71.0" layoutX="365.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7"/>
                         <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Label layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="202.0" text="Booking Search">
+                        <Label layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="202.0" text="Room Search">
                             <font>
                                 <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
@@ -168,55 +169,61 @@
                               stroke="#2212d7"/>
                         <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <ComboBox layoutX="96.0" layoutY="61.0" prefHeight="33.0" prefWidth="281.0"/>
-                        <Button layoutX="151.0" layoutY="118.0" mnemonicParsing="false" prefHeight="40.0"
-                                prefWidth="172.0" text="Search"/>
-                        <Label layoutX="42.0" layoutY="165.0" prefHeight="40.0" prefWidth="154.0"
-                               text="Use the service">
-                            <font>
-                                <Font name="Arial Bold" size="18.0"/>
-                            </font>
-                        </Label>
-                        <Button layoutX="93.0" layoutY="212.0" mnemonicParsing="false" prefHeight="40.0"
-                                prefWidth="281.0" style="-fx-background-color: #303f9f; -fx-border-color: white;"
-                                text="Service" textFill="WHITE">
-                            <font>
-                                <Font name="Arial Bold" size="19.0"/>
-                            </font>
-                        </Button>
+                        <ComboBox layoutX="93.0" layoutY="85.0" prefHeight="40.0" prefWidth="288.0"
+                                  promptText="Please select room name"/>
                         <Label layoutX="62.0" layoutY="289.0" prefHeight="40.0" prefWidth="115.0" text="Handle">
                             <font>
                                 <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
                         </Label>
+                        <Button layoutX="162.0" layoutY="172.0" mnemonicParsing="false" onAction="#gotoBills"
+                                prefHeight="40.0" prefWidth="150.0" text="Search">
+                            <font>
+                                <Font name="Arial Bold" size="16.0"/>
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="20" fitWidth="30">
+                                    <image>
+                                        <Image url="@../../images/icons8-search.gif"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
                     </children>
                 </Pane>
                 <Pane layoutY="308.0" prefHeight="343.0" prefWidth="757.0">
                     <children>
-                        <Line endX="390.0" layoutX="334.0" layoutY="35.0" scaleY="2.0" startX="-100.0"
+                        <Line endX="390.0" layoutX="334.0" layoutY="49.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0"
+                        <Line endX="-70.0" layoutX="120.0" layoutY="52.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Label layoutX="60.0" layoutY="14.0" prefHeight="40.0" prefWidth="185.0" text="Booking List">
+                        <Label layoutX="81.0" layoutY="14.0" prefHeight="40.0" prefWidth="185.0" text="Room List">
                             <font>
                                 <Font name="Palatine Linotype Bold" size="27.0"/>
                             </font>
                         </Label>
-                        <Line endX="175.0" layoutX="-18.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                        <Line endX="156.0" layoutX="-8.0" layoutY="181.0" rotate="90.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
                         <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Line endX="175.0" layoutX="687.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                        <Line endX="156.0" layoutX="696.0" layoutY="181.0" rotate="90.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <TableView layoutX="24.0" layoutY="54.0" prefHeight="253.0" prefWidth="697.0">
+                        <TableView fx:id="tbRoom" layoutX="24.0" layoutY="54.0" prefHeight="253.0" prefWidth="697.0">
                             <columns>
-                                <TableColumn prefWidth="105.0" text="Room's Name"/>
-                                <TableColumn prefWidth="145.0" text="Room Type"/>
-                                <TableColumn prefWidth="126.0" text="Status"/>
-                                <TableColumn prefWidth="153.0" text="Room Rates"/>
-                                <TableColumn prefWidth="167.0" text="Floor"/>
+                                <TableColumn fx:id="cId" prefWidth="32.0" text="ID"/>
+                                <TableColumn fx:id="cName" prefWidth="126.0" text="Name"/>
+                                <TableColumn fx:id="cRoomType" prefWidth="199.0" text="RoomType"/>
+                                <TableColumn fx:id="cStatus" prefWidth="140.0" text="Status"/>
+                                <TableColumn fx:id="cFloor" minWidth="0.0" prefWidth="105.0" text="Floor"/>
+                                <TableColumn fx:id="cPrice" prefWidth="94.0" text="Price"/>
                             </columns>
                         </TableView>
+                        <Button layoutX="635.0" layoutY="8.0" mnemonicParsing="false" onAction="#unselect"
+                                prefHeight="16.0" prefWidth="90.0" text="unselect">
+                            <font>
+                                <Font name="Arial Bold" size="16.0"/>
+                            </font>
+                        </Button>
                     </children>
                 </Pane>
                 <Pane layoutX="744.0" layoutY="314.0" prefHeight="343.0" prefWidth="456.0">
@@ -227,7 +234,7 @@
                               stroke="#2212d7"/>
                         <Line endX="315.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Button id="windows8" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" prefHeight="135.0"
+                        <Button onAction="#addRoom" id="windows8" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" prefHeight="135.0"
                                 prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
@@ -250,7 +257,7 @@
                         </Button>
                         <Line endX="202.0" layoutX="385.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Button id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" prefHeight="135.0"
+                        <Button onAction="#editRoom" id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" prefHeight="135.0"
                                 prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
@@ -271,7 +278,7 @@
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0"
+                        <Button onAction="#refresh" id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0"
                                 prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
@@ -292,7 +299,7 @@
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0"
+                        <Button onAction="#deleteRoom" id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0"
                                 prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">

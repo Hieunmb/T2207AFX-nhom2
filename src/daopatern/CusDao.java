@@ -105,4 +105,5 @@ public class CusDao implements DAOInterface<Customer>{
         }
         return null;
     }
+
 }

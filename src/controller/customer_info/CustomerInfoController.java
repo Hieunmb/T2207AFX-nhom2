@@ -39,6 +39,7 @@ public class CustomerInfoController implements Initializable {
     public TextField txtPhone;
     public TextField txtIdentityCard;
     public ComboBox<Customer> cbFind;
+    public Button btnAdd;
 
 
     public void addCus(ActionEvent event) {
@@ -136,6 +137,7 @@ public class CustomerInfoController implements Initializable {
         cbFind.getSelectionModel().clearSelection();
         tbCus.getItems().setAll(CusDao.getInstance().getAll());
         tbCus.refresh();
+        btnAdd.setDisable(false);
     }
 
     public void searchCus(ActionEvent event) {
@@ -184,9 +186,11 @@ public class CustomerInfoController implements Initializable {
                 txtPhone.setText(selectedCustomer.getPhone());
                 cbNationality.setValue(selectedCustomer.getNationality());
                 cbGender.setValue(selectedCustomer.getGender());
+                btnAdd.setDisable(true);
             }
         });
 
+        // combobox search customer
         try {
             CusDao cusDao = CusDao.getInstance();
             ArrayList<Customer> list1 = cusDao.getAll();
@@ -197,12 +201,14 @@ public class CustomerInfoController implements Initializable {
             alert.show();
         }
 
+        // combobox gender
         ObservableList<String> gt = FXCollections.observableArrayList();
         gt.add("Male");
         gt.add("Female");
         Collections.sort(gt, ((o1, o2) -> o1.compareTo(o2)));
         cbGender.setItems(gt);
 
+        // combobox Nationality
         ObservableList<String> qt = FXCollections.observableArrayList();
         //Bắc Âu
         qt.add("Denmark");

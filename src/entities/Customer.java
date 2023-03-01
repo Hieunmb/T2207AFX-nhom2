@@ -73,6 +73,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return this.getName();
+        return String.valueOf(this.getId());
     }
 }

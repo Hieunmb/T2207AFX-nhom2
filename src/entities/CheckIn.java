@@ -3,23 +3,23 @@ package entities;
 import java.sql.Date;
 
 public class CheckIn {
-    private int id;
-    private String nameCus;
-    private String nameRoom;
+    private Integer id;
+    private int customer_id;
+    private int room_id;
     private Date checkindate;
     private Date checkoutDate;
     private String note;
 
-    public CheckIn(int id, String nameCus, String nameRoom, Date checkindate, Date checkoutDate, String note) {
+    public CheckIn(Integer id, int customer_id, int room_id, Date checkindate, Date checkoutDate, String note) {
         this.id = id;
-        this.nameCus = nameCus;
-        this.nameRoom = nameRoom;
+        this.customer_id = customer_id;
+        this.room_id = room_id;
         this.checkindate = checkindate;
         this.checkoutDate = checkoutDate;
         this.note = note;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -28,21 +28,21 @@ public class CheckIn {
         return this;
     }
 
-    public String getNameCus() {
-        return nameCus;
+    public Integer getCustomer_id() {
+        return customer_id;
     }
 
-    public CheckIn setNameCus(String nameCus) {
-        this.nameCus = nameCus;
+    public CheckIn setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
         return this;
     }
 
-    public String getNameRoom() {
-        return nameRoom;
+    public Integer getRoom_id() {
+        return room_id;
     }
 
-    public CheckIn setNameRoom(String nameRoom) {
-        this.nameRoom = nameRoom;
+    public CheckIn setRoom_id(int room_id) {
+        this.room_id = room_id;
         return this;
     }
 
@@ -71,5 +71,10 @@ public class CheckIn {
     public CheckIn setNote(String note) {
         this.note = note;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.getId());
     }
 }
