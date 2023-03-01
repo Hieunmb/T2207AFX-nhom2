@@ -1,7 +1,6 @@
 package daopatern;
 
 import database.Database;
-import entities.Customer;
 import entities.Service;
 
 import java.sql.ResultSet;
@@ -88,6 +87,10 @@ public class ServiceDao implements DAOInterface<Service> {
 
     @Override
     public Service find(Integer id) {
+        return null;
+    }
+
+    public Service finds(String id) {
         try {
             Database db = Database.getInstance();
             Statement stt = db.getStatement();
@@ -96,7 +99,7 @@ public class ServiceDao implements DAOInterface<Service> {
             while (rs.next()) {
                 String name = rs.getString("name");
                 String price=rs.getString("price");
-                Service s = new Service(null, name, price);
+                Service s = new Service(id, name, price);
                 return s;
             }
         } catch (Exception e) {

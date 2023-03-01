@@ -188,7 +188,7 @@ public class ServiceController implements Initializable {
             try {
                 String id = service.getId();
                 ServiceDao serviceDao = ServiceDao.getInstance();
-                Service c = serviceDao.find(Integer.valueOf(id));
+                Service c = serviceDao.finds(id);
                 ArrayList<Service> list = new ArrayList<>();
                 list.add(c);
                 tbS.getItems().setAll(list);
