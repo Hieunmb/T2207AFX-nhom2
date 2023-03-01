@@ -31,7 +31,7 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button onAction="#goToCheckIn" layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check-in">
+        <Button layoutX="150.0" mnemonicParsing="false" onAction="#goToCheckIn" prefHeight="40.0" prefWidth="150.0" text="Check-in">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
@@ -43,11 +43,11 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Service">
+        <Button onAction="#goToCustomerInfo" layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Customer Info">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
-                        <Image url="@../../images/service.png" />
+                        <Image url="@../../images/support.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -55,7 +55,7 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button onAction="#goToRoom" layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Rooms">
+        <Button layoutX="450.0" mnemonicParsing="false" onAction="#goToRoom" prefHeight="40.0" prefWidth="150.0" text="Rooms">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
@@ -67,7 +67,7 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Button>
-        <Button onAction="#goToBill" layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Bills">
+        <Button layoutX="600.0" mnemonicParsing="false" onAction="#goToBill" prefHeight="40.0" prefWidth="150.0" text="Bills">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>

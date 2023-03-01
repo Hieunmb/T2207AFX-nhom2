@@ -18,9 +18,18 @@ public class ServiceController {
         HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
-    public void goToRoom(ActionEvent event) {
+    public void goToRoom(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/room/room.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 
-    public void goToBill(ActionEvent event) {
+    public void goToBill(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
+    }
+
+    public void goToCustomerInfo(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/customer_info/customer_info.fxml"));
+        HomeController.rootStage.setScene(new Scene(root,1200,720));
     }
 }
