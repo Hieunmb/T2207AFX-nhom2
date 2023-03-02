@@ -20,7 +20,7 @@
                 <Image url="@../images/home1.jpeg"/>
             </image>
         </ImageView>
-        <Button layoutX="1030.0" layoutY="41.0" style="-fx-border-color: black;" text="Exit">
+        <Button onAction="#Exit" layoutX="1030.0" layoutY="41.0" style="-fx-border-color: black;" text="Exit">
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                     <image>
