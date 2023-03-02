@@ -64,6 +64,7 @@ public class CustomerInfoController implements Initializable {
         refreshForm(null);
         tbCus.getItems().setAll(CusDao.getInstance().getAll());
         tbCus.refresh();
+        cbFind.getItems().setAll(CusDao.getInstance().getAll());
     }
 
     public void editCus(ActionEvent event) {
@@ -129,7 +130,7 @@ public class CustomerInfoController implements Initializable {
         }
         tbCus.getItems().setAll(CusDao.getInstance().getAll());
         tbCus.refresh();
-
+        cbFind.getItems().setAll(CusDao.getInstance().getAll());
     }
     public void unselect(ActionEvent event) {
         tbCus.getSelectionModel().clearSelection();
@@ -178,7 +179,7 @@ public class CustomerInfoController implements Initializable {
         ArrayList<Customer> list = cd.getAll();
         tbCus.getItems().addAll(list);
         tbCus.refresh();
-        tbCus.setOnMouseClicked(event -> {
+        tbCus.setOnMouseClicked(event -> { // gắn sự kiện
             Customer selectedCustomer = tbCus.getSelectionModel().getSelectedItem();
             if (selectedCustomer != null) {
                 txtName.setText(selectedCustomer.getName());
