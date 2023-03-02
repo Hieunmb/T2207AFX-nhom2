@@ -120,10 +120,10 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCusID" layoutX="194.0" layoutY="90.0" prefHeight="33.0" prefWidth="150.0" promptText="Customer ID" />
                   <TextField fx:id="txtPrice" layoutX="517.0" layoutY="90.0" prefHeight="33.0" prefWidth="150.0" promptText="Price" />
                   <ComboBox fx:id="cbPayment" layoutX="517.0" layoutY="193.0" prefHeight="33.0" prefWidth="150.0" />
                   <DatePicker fx:id="dpCheckOutDate" layoutX="194.0" layoutY="193.0" prefHeight="33.0" prefWidth="154.0" />
+                  <ComboBox fx:id="cbCustomer" layoutX="196.0" layoutY="90.0" prefHeight="33.0" prefWidth="150.0" promptText="Customer ID" />
                </children>
             </Pane>
             <Pane layoutY="308.0" prefHeight="343.0" prefWidth="757.0">
@@ -147,95 +147,132 @@
                         <TableColumn fx:id="cPayM" prefWidth="197.0" text="Payment Type" />
                      </columns>
                   </TableView>
+                  <Button layoutX="631.0" mnemonicParsing="false" onAction="#unselect" prefHeight="32.0" prefWidth="90.0" text="unselect">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
-            <Pane layoutX="744.0" layoutY="314.0" prefHeight="343.0" prefWidth="456.0">
+            <Pane layoutX="744.0" layoutY="-7.0" prefHeight="343.0" prefWidth="456.0">
                <children>
-                  <Line endX="220.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Button id="windows8" layoutX="129.0" layoutY="158.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                  <Line endX="71.0" layoutX="365.0" layoutY="35.0" scaleY="2.0" startX="-60.0" stroke="#2212d7" />
+                  <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Label layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="248.0" text="Finding Bills">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <Line endX="146.0" layoutX="-3.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="315.0" layoutX="121.0" layoutY="281.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <ComboBox fx:id="cbFind" layoutX="88.0" layoutY="92.0" prefHeight="33.0" prefWidth="281.0" promptText="Please select bills infor" />
+                  <Label layoutX="62.0" layoutY="289.0" prefHeight="40.0" prefWidth="115.0" text="Handle">
+                     <font>
+                        <Font name="Palatino Linotype Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="142.0" layoutY="179.0" mnemonicParsing="false" onAction="#searchBill" prefHeight="40.0" prefWidth="172.0" text="Search">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="31.0">
+                           <image>
+                              <Image url="@../../images/icons8-search.gif" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="744.0" layoutY="308.0" prefHeight="343.0" prefWidth="456.0">
+               <children>
+                  <Line endX="162.0" layoutX="274.0" scaleY="2.0" startX="-120.0" stroke="#2212d7" />
+                  <Line endX="-70.0" layoutX="120.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="202.0" layoutX="-31.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="315.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Button id="windows8" fx:id="btnAdd" layoutX="51.0" layoutY="16.0" mnemonicParsing="false" onAction="#addBill" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                      <graphic>
                         <Pane prefHeight="128.0" prefWidth="154.0">
                            <children>
-                              <Text layoutX="-8.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Refesh" textAlignment="CENTER">
+                              <ImageView fitHeight="99.0" fitWidth="104.0" layoutX="-10.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/Add.png" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="18.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add" textAlignment="CENTER">
                                  <font>
-                                    <Font size="19.0" />
+                                    <Font name="Bell MT Bold" size="23.0" />
                                  </font>
                               </Text>
-                              <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="-10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Button>
+                  <Line endX="202.0" layoutX="385.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Button id="windows8" layoutX="216.0" layoutY="16.0" mnemonicParsing="false" onAction="#editBill" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                     <graphic>
+                        <Pane prefHeight="128.0" prefWidth="154.0">
+                           <children>
+                              <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons8-ok-48.png" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="17.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="23.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Button>
+                  <Button id="windows8" layoutX="216.0" layoutY="161.0" mnemonicParsing="false" onAction="#refrehForm" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                     <graphic>
+                        <Pane prefHeight="128.0" prefWidth="154.0">
+                           <children>
+                              <ImageView fitHeight="79.0" fitWidth="96.0" layoutX="-1.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../images/refresh-flat.png" />
                                  </image>
                               </ImageView>
-                           </children>
-                        </Pane>
-                     </graphic>
-                  </Button>
-                  <Button id="windows8" layoutX="129.0" layoutY="43.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
-                     <graphic>
-                        <Pane prefHeight="128.0" prefWidth="154.0">
-                           <children>
-                              <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../images/icons8-cancel-48.png" />
-                                 </image>
-                              </ImageView>
-                              <Text layoutX="-10.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove" textAlignment="CENTER">
+                              <Text layoutX="1.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Refresh" textAlignment="CENTER">
                                  <font>
-                                    <Font size="19.0" />
+                                    <Font name="Bell MT Bold" size="23.0" />
                                  </font>
                               </Text>
                            </children>
                         </Pane>
                      </graphic>
                   </Button>
-                  <Line endX="202.0" layoutX="393.0" layoutY="46.0" rotate="90.0" scaleY="2.0" startX="-307.0" stroke="#2212d7" />
+                  <Button id="windows8" layoutX="51.0" layoutY="161.0" mnemonicParsing="false" onAction="#deleteBill" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                     <graphic>
+                        <Pane prefHeight="128.0" prefWidth="154.0">
+                           <children>
+                              <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons8-cancel-48.png" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="-1.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Bell MT Bold" size="23.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="357.0" layoutY="251.0" mnemonicParsing="false" onAction="#Print" prefHeight="40.0" prefWidth="74.0" text="Print">
+                     <font>
+                        <Font name="Arial Bold" size="19.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
-            <Line endX="202.0" layoutX="818.0" layoutY="360.0" rotate="90.0" scaleY="2.0" startX="-307.0" stroke="#2212d7" />
-            <Line endX="-70.0" layoutX="866.0" layoutY="106.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-            <Button id="windows8" layoutX="869.0" layoutY="129.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
-               <graphic>
-                  <Pane prefHeight="128.0" prefWidth="154.0">
-                     <children>
-                        <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="-15.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/Add.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-               </graphic>
-            </Button>
-            <Text layoutX="900.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add" textAlignment="CENTER">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <Button id="windows8" layoutX="870.0" layoutY="244.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
-               <graphic>
-                  <Pane prefHeight="128.0" prefWidth="154.0">
-                     <children>
-                        <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/icons8-ok-48.png" />
-                           </image>
-                        </ImageView>
-                        <Text layoutX="3.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" textAlignment="CENTER">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-               </graphic>
-            </Button>
-            <Text layoutX="800.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bill Processing">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </Text>
          </children>
       </Pane>
-      <Line endX="-10.0" layoutX="1095.0" layoutY="168.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
    </children>
 </AnchorPane>
