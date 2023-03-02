@@ -139,4 +139,25 @@ public class CheckInDao implements DAOInterface<CheckIn>{
         }
         return false;
     }
+
+    public CheckIn findByCusID(Integer cid) {
+        try {
+            Database db = Database.getInstance();
+            Statement stt = db.getStatement();
+            String sql = "select * from checkin where customer_id ="+cid;
+            ResultSet rs = stt.executeQuery(sql);
+            while (rs.next()) {
+                Integer id = rs.getInt("id");
+                Integer room_id = rs.getInt("room_id");
+                Date checkIn = rs.getDate("checkindate");
+                Date checkOut = rs.getDate("checkoutDate");
+                String note = rs.getString("note");
+                CheckIn c = new CheckIn(id, cid, room_id, checkIn, checkOut, note);
+                return c;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }

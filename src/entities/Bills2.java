@@ -2,16 +2,16 @@ package entities;
 
 import java.util.Date;
 
-public class Bills {
+public class Bills2 {
     private Integer id;
-    private Integer checkin_id;
+    private Integer customer_id;
     private Integer price;
     private Date checkoutDate;
     private String payments;
 
-    public Bills(Integer id, Integer checkin_id, Integer price, Date checkoutDate, String payments) {
+    public Bills2(Integer id, Integer customer_id, Integer price, Date checkoutDate, String payments) {
         this.id = id;
-        this.checkin_id = checkin_id;
+        this.customer_id = customer_id;
         this.price = price;
         this.checkoutDate = checkoutDate;
         this.payments = payments;
@@ -21,17 +21,17 @@ public class Bills {
         return id;
     }
 
-    public Bills setId(Integer id) {
+    public Bills2 setId(Integer id) {
         this.id = id;
         return this;
     }
 
-    public Integer getCheckin_id() {
-        return checkin_id;
+    public Integer getCustomer_id() {
+        return customer_id;
     }
 
-    public Bills setCheckin_id(Integer checkin_id) {
-        this.checkin_id = checkin_id;
+    public Bills2 setCustomer_id(Integer customer_id) {
+        this.customer_id = customer_id;
         return this;
     }
 
@@ -39,7 +39,7 @@ public class Bills {
         return price;
     }
 
-    public Bills setPrice(Integer price) {
+    public Bills2 setPrice(Integer price) {
         this.price = price;
         return this;
     }
@@ -48,7 +48,7 @@ public class Bills {
         return checkoutDate;
     }
 
-    public Bills setCheckoutDate(Date checkoutDate) {
+    public Bills2 setCheckoutDate(Date checkoutDate) {
         this.checkoutDate = checkoutDate;
         return this;
     }
@@ -57,7 +57,7 @@ public class Bills {
         return payments;
     }
 
-    public Bills setPayments(String payments) {
+    public Bills2 setPayments(String payments) {
         this.payments = payments;
         return this;
     }

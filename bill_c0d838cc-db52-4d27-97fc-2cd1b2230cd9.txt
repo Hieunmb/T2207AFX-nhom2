@@ -1,0 +1,6 @@
+Bill information: 
+Bill ID: 13
+Customer ID: 32
+Checkout date: 2023-03-07
+Total price: 375
+Payments: Cash

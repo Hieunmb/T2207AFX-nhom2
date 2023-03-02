@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -97,10 +98,10 @@
                         <Font name="Palatino Linotype Bold" size="27.0" />
                      </font>
                   </Label>
-                  <Line endX="195.0" layoutX="-27.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Line endX="195.0" layoutX="678.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Label layoutX="448.0" layoutY="87.0" prefHeight="40.0" prefWidth="154.0" text="Price">
+                  <Line endX="180.0" layoutX="-20.0" layoutY="155.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="603.0" layoutX="121.0" layoutY="295.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="180.0" layoutX="685.0" layoutY="155.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Label layoutX="407.0" layoutY="115.0" prefHeight="40.0" prefWidth="65.0" text="Price">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -110,43 +111,68 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="74.0" layoutY="86.0" prefHeight="40.0" prefWidth="154.0" text="Customer ID">
+                  <Label layoutX="53.0" layoutY="50.0" prefHeight="40.0" prefWidth="154.0" text="CheckIn's ID">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="68.0" layoutY="190.0" prefHeight="40.0" prefWidth="154.0" text="CheckoutDate">
+                  <Label layoutX="53.0" layoutY="186.0" prefHeight="40.0" prefWidth="154.0" text="CheckoutDate">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCusID" layoutX="194.0" layoutY="90.0" prefHeight="33.0" prefWidth="150.0" promptText="Customer ID" />
-                  <TextField fx:id="txtPrice" layoutX="517.0" layoutY="90.0" prefHeight="33.0" prefWidth="150.0" promptText="Price" />
-                  <ComboBox fx:id="cbPayment" layoutX="517.0" layoutY="193.0" prefHeight="33.0" prefWidth="150.0" />
-                  <DatePicker fx:id="dpCheckOutDate" layoutX="194.0" layoutY="193.0" prefHeight="33.0" prefWidth="154.0" />
+                  <ComboBox fx:id="cbPayment" layoutX="517.0" layoutY="193.0" prefHeight="33.0" prefWidth="163.0" promptText="Payment Type" />
+                  <DatePicker fx:id="dpCheckOutDate" layoutX="178.0" layoutY="193.0" prefHeight="33.0" prefWidth="188.0" />
+                  <Label layoutX="53.0" layoutY="115.0" prefHeight="40.0" prefWidth="154.0" text="Customer's ID">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbCheckInID" layoutX="176.0" layoutY="52.0" prefHeight="36.0" prefWidth="188.0" promptText="CheckIn's ID" />
+                  <Label fx:id="lbCusID" layoutX="178.0" layoutY="117.0" prefHeight="36.0" prefWidth="188.0" style="-fx-background-color: white;" text="Customer's ID" textFill="#bcabab">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lbRoomID" layoutX="489.0" layoutY="52.0" prefHeight="36.0" prefWidth="188.0" style="-fx-background-color: white;" text="Customer's ID" textFill="#bcabab">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="389.0" layoutY="50.0" prefHeight="40.0" prefWidth="100.0" text="Room's ID">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="lbPrice" layoutX="490.0" layoutY="120.0" promptText="Price" />
                </children>
             </Pane>
             <Pane layoutY="308.0" prefHeight="343.0" prefWidth="757.0">
                <children>
-                  <Line endX="390.0" layoutX="334.0" layoutY="35.0" scaleY="2.0" startX="-150.0" stroke="#2212d7" />
-                  <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="390.0" layoutX="334.0" layoutY="50.0" scaleY="2.0" startX="-158.0" stroke="#2212d7" />
+                  <Line endX="-70.0" layoutX="120.0" layoutY="50.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Label layoutX="60.0" layoutY="14.0" prefHeight="40.0" prefWidth="214.0" text="Bills List">
                      <font>
                         <Font name="Palatino Linotype Bold" size="27.0" />
                      </font>
                   </Label>
-                  <Line endX="175.0" layoutX="-18.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="158.0" layoutX="-9.0" layoutY="179.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                  <Line endX="175.0" layoutX="687.0" layoutY="172.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                  <Line endX="158.0" layoutX="695.0" layoutY="179.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                   <TableView fx:id="tbBill" layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
                      <columns>
-                        <TableColumn fx:id="cID" prefWidth="56.0" text="Bill ID" />
-                        <TableColumn fx:id="cCusID" prefWidth="132.0" text="Customer ID" />
-                        <TableColumn fx:id="cPrice" prefWidth="153.0" text="Price" />
-                        <TableColumn fx:id="cCheOutDate" prefWidth="157.0" text="CheckoutDate" />
-                        <TableColumn fx:id="cPayM" prefWidth="197.0" text="Payment Type" />
+                        <TableColumn fx:id="cID" prefWidth="29.0" text="ID" />
+                        <TableColumn fx:id="cCusID" prefWidth="143.0" text="CheckIn's ID" />
+                        <TableColumn fx:id="cPrice" prefWidth="170.0" text="Price" />
+                        <TableColumn fx:id="cCheckOutDate" prefWidth="175.0" text="CheckoutDate" />
+                        <TableColumn fx:id="cPayMentType" prefWidth="178.0" text="Payment Type" />
                      </columns>
                   </TableView>
+                  <Button layoutX="604.0" layoutY="8.0" mnemonicParsing="false" onAction="#unSelect" prefHeight="32.0" prefWidth="121.0" text="unselect">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
             <Pane layoutX="744.0" layoutY="314.0" prefHeight="343.0" prefWidth="456.0">
@@ -176,10 +202,10 @@
                            <children>
                               <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/icons8-cancel-48.png" />
+                                    <Image url="@../../images/check-out(2).png" />
                                  </image>
                               </ImageView>
-                              <Text layoutX="-10.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove" textAlignment="CENTER">
+                              <Text layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Print" textAlignment="CENTER">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -193,7 +219,7 @@
             </Pane>
             <Line endX="202.0" layoutX="818.0" layoutY="360.0" rotate="90.0" scaleY="2.0" startX="-307.0" stroke="#2212d7" />
             <Line endX="-70.0" layoutX="866.0" layoutY="106.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-            <Button id="windows8" layoutX="869.0" layoutY="129.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+            <Button onAction="#addBill" id="windows8" layoutX="869.0" layoutY="129.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                <graphic>
                   <Pane prefHeight="128.0" prefWidth="154.0">
                      <children>

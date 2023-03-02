@@ -125,7 +125,7 @@ public class RoomDao implements DAOInterface<RoomInfo>{
         try {
             Database db = Database.getInstance();
             Statement stt = db.getStatement();
-            String sql = "SELECT a.id, a.name, b.name as roomtype,c.name as floor, a.status, b.price, a.roomtype_id, a.floor_id FROM room a INNER JOIN roomtype b on a.roomtype_id = b.id INNER JOIN floor c on a.floor_id = c.id ORDER BY a.id ASC";
+            String sql = "SELECT a.id, a.name, b.name as roomtype,c.name as floor, a.status, b.price, a.roomtype_id, a.floor_id FROM room a INNER JOIN roomtype b on a.roomtype_id = b.id INNER JOIN floor c on a.floor_id = c.id where a.id="+id;
             ResultSet rs = stt.executeQuery(sql);
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -163,5 +163,21 @@ public class RoomDao implements DAOInterface<RoomInfo>{
             System.out.println(e.getMessage());
         }
         return list;
+    }
+
+    public double getPriceByRoomTypeId(int roomTypeId) {
+        try {
+            Database db = Database.getInstance();
+            Statement stt = db.getStatement();
+            String sql = "SELECT price FROM roomtype WHERE id in (SELECT roomtype_id FROM room WHERE id = "+roomTypeId+");";
+            ResultSet rs = stt.executeQuery(sql);
+            while (rs.next()) {
+                Double price = rs.getDouble("price");
+                return price;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return 0.0;
     }
 }

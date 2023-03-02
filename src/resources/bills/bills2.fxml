@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.bills.Bills2Controller">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1200.0" opacity="0.59" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../../images/home1.jpeg" />
+            </image>
+        </ImageView>
+        <Button mnemonicParsing="false" onAction="#goToHome" prefHeight="40.0" prefWidth="150.0" text="HOME">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="30">
+                    <image>
+                        <Image url="@../../images/icons8-hotel-64.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="150.0" mnemonicParsing="false" onAction="#goToCheckin" prefHeight="40.0" prefWidth="150.0" text="Check-in">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="30">
+                    <image>
+                        <Image url="@../../images/check-in(1).png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="300.0" mnemonicParsing="false" onAction="#goToService" prefHeight="40.0" prefWidth="150.0" text="Service">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="30">
+                    <image>
+                        <Image url="@../../images/service.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="450.0" mnemonicParsing="false" onAction="#goToManageRoom" prefHeight="40.0" prefWidth="150.0" text="Rooms">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="30">
+                    <image>
+                        <Image url="@../../images/hotel.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="600.0" mnemonicParsing="false" onAction="#goToCustomer" prefHeight="40.0" prefWidth="150.0" text="Customers">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="30">
+                    <image>
+                        <Image url="@../../images/support.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Label alignment="CENTER" layoutX="880.0" layoutY="5.0" prefHeight="70.0" prefWidth="320.0" text="Bills" textAlignment="CENTER" AnchorPane.leftAnchor="880.0">
+            <font>
+                <Font name="Palatino Linotype Bold" size="35.0" />
+            </font>
+            <graphic>
+                <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/invoice.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Label>
+        <Pane layoutY="63.0" prefHeight="657.0" prefWidth="1200.0">
+            <children>
+                <Pane prefHeight="343.0" prefWidth="757.0">
+                    <children>
+                        <Line endX="450.0" layoutX="274.0" layoutY="15.0" scaleY="2.0" startX="20.0" stroke="#2212d7" />
+                        <Line endX="-70.0" layoutX="120.0" layoutY="15.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Label layoutX="53.0" layoutY="-6.0" prefHeight="40.0" prefWidth="281.0" text="Invoice Information">
+                            <font>
+                                <Font name="Palatino Linotype Bold" size="27.0" />
+                            </font>
+                        </Label>
+                        <Line endX="180.0" layoutX="-20.0" layoutY="155.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="603.0" layoutX="121.0" layoutY="295.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="180.0" layoutX="685.0" layoutY="155.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Label layoutX="407.0" layoutY="115.0" prefHeight="40.0" prefWidth="65.0" text="Price">
+                            <font>
+                                <Font name="Arial Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="379.0" layoutY="190.0" prefHeight="40.0" prefWidth="154.0" text="Payment Type">
+                            <font>
+                                <Font name="Arial Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="53.0" layoutY="50.0" prefHeight="40.0" prefWidth="154.0" text="CheckIn's ID">
+                            <font>
+                                <Font name="Arial Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="53.0" layoutY="186.0" prefHeight="40.0" prefWidth="154.0" text="CheckoutDate">
+                            <font>
+                                <Font name="Arial Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="cbPayment" layoutX="517.0" layoutY="193.0" prefHeight="33.0" prefWidth="163.0" promptText="Payment Type" />
+                        <DatePicker fx:id="dpCheckOutDate" layoutX="178.0" layoutY="193.0" prefHeight="33.0" prefWidth="188.0" />
+                        <Label layoutX="53.0" layoutY="115.0" prefHeight="40.0" prefWidth="154.0" text="Customer's ID">
+                            <font>
+                                <Font name="Arial Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="cbCheckInID" layoutX="176.0" layoutY="52.0" prefHeight="36.0" prefWidth="188.0" promptText="CheckIn's ID" />
+                        <Label fx:id="lbCusID" layoutX="178.0" layoutY="117.0" prefHeight="36.0" prefWidth="188.0" style="-fx-background-color: white;" text="Customer's ID" textFill="#bcabab">
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="lbRoomID" layoutX="489.0" layoutY="52.0" prefHeight="36.0" prefWidth="188.0" style="-fx-background-color: white;" text="Customer's ID" textFill="#bcabab">
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                        </Label>
+                        <Label layoutX="389.0" layoutY="50.0" prefHeight="40.0" prefWidth="100.0" text="Room's ID">
+                            <font>
+                                <Font name="Arial Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="lbPrice" layoutX="490.0" layoutY="120.0" promptText="Price" />
+                    </children>
+                </Pane>
+                <Pane layoutY="308.0" prefHeight="343.0" prefWidth="757.0">
+                    <children>
+                        <Line endX="390.0" layoutX="334.0" layoutY="50.0" scaleY="2.0" startX="-158.0" stroke="#2212d7" />
+                        <Line endX="-70.0" layoutX="120.0" layoutY="50.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Label layoutX="60.0" layoutY="14.0" prefHeight="40.0" prefWidth="214.0" text="Bills List">
+                            <font>
+                                <Font name="Palatino Linotype Bold" size="27.0" />
+                            </font>
+                        </Label>
+                        <Line endX="158.0" layoutX="-9.0" layoutY="179.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="158.0" layoutX="695.0" layoutY="179.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <TableView fx:id="tbBill" layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
+                            <columns>
+                                <TableColumn fx:id="cID" prefWidth="29.0" text="ID" />
+                                <TableColumn fx:id="cCusID" prefWidth="143.0" text="CheckIn's ID" />
+                                <TableColumn fx:id="cPrice" prefWidth="170.0" text="Price" />
+                                <TableColumn fx:id="cCheckOutDate" prefWidth="175.0" text="CheckoutDate" />
+                                <TableColumn fx:id="cPayMentType" prefWidth="178.0" text="Payment Type" />
+                            </columns>
+                        </TableView>
+                        <Button layoutX="604.0" layoutY="8.0" mnemonicParsing="false" onAction="#unSelect" prefHeight="32.0" prefWidth="121.0" text="unselect">
+                            <font>
+                                <Font name="Arial Bold" size="16.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </Pane>
+                <Pane layoutX="744.0" layoutY="314.0" prefHeight="343.0" prefWidth="456.0">
+                    <children>
+                        <Line endX="220.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Button id="windows8" layoutX="129.0" layoutY="158.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                            <graphic>
+                                <Pane prefHeight="128.0" prefWidth="154.0">
+                                    <children>
+                                        <Text layoutX="-8.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Refesh" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="19.0" />
+                                            </font>
+                                        </Text>
+                                        <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="-10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../images/refresh-flat.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </Pane>
+                            </graphic>
+                        </Button>
+                        <Button onAction="#printBills" id="windows8" layoutX="129.0" layoutY="43.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                            <graphic>
+                                <Pane prefHeight="128.0" prefWidth="154.0">
+                                    <children>
+                                        <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../images/check-out(2).png" />
+                                            </image>
+                                        </ImageView>
+                                        <Text layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Print" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="19.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </Pane>
+                            </graphic>
+                        </Button>
+                        <Line endX="202.0" layoutX="393.0" layoutY="46.0" rotate="90.0" scaleY="2.0" startX="-307.0" stroke="#2212d7" />
+                    </children>
+                </Pane>
+                <Line endX="202.0" layoutX="818.0" layoutY="360.0" rotate="90.0" scaleY="2.0" startX="-307.0" stroke="#2212d7" />
+                <Line endX="-70.0" layoutX="866.0" layoutY="106.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                <Button onAction="#addBill" id="windows8" layoutX="869.0" layoutY="129.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                    <graphic>
+                        <Pane prefHeight="128.0" prefWidth="154.0">
+                            <children>
+                                <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="-15.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/Add.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                    </graphic>
+                </Button>
+                <Text layoutX="900.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add" textAlignment="CENTER">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                </Text>
+                <Button id="windows8" layoutX="870.0" layoutY="244.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                    <graphic>
+                        <Pane prefHeight="128.0" prefWidth="154.0">
+                            <children>
+                                <ImageView fitHeight="69.0" fitWidth="74.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icons8-ok-48.png" />
+                                    </image>
+                                </ImageView>
+                                <Text layoutX="3.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" textAlignment="CENTER">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </Pane>
+                    </graphic>
+                </Button>
+                <Text layoutX="800.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bill Processing">
+                    <font>
+                        <Font size="27.0" />
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Line endX="-10.0" layoutX="1095.0" layoutY="168.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+    </children>
+</AnchorPane>

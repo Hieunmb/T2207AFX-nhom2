@@ -22,7 +22,7 @@
                 <Image url="@../../images/home1.jpeg"/>
             </image>
         </ImageView>
-        <Button mnemonicParsing="false" onAction="#gotohome" prefHeight="40.0" prefWidth="150.0" text="HOME">
+        <Button onAction="#gotohome" mnemonicParsing="false"  prefHeight="40.0" prefWidth="150.0" text="HOME">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
@@ -34,7 +34,7 @@
                 <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="150.0" mnemonicParsing="false" onAction="#gotoInfoCustomer" prefHeight="40.0" prefWidth="150.0"
+        <Button onAction="#gotoInfoCustomer" layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
                 text="Customers">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
@@ -47,7 +47,7 @@
                 <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="300.0" mnemonicParsing="false" onAction="#gotoService" prefHeight="40.0" prefWidth="150.0"
+        <Button onAction="#gotoService" layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
                 text="Service">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
@@ -60,7 +60,7 @@
                 <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check in">
+        <Button onAction="#goToCheckIn" layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check in">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
@@ -72,7 +72,7 @@
                 <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="600.0" mnemonicParsing="false" onAction="#gotoBills" prefHeight="40.0" prefWidth="150.0"
+        <Button onAction="#gotoBills" layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
                 text="Bills">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">

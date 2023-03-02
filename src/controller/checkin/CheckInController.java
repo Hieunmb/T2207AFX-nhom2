@@ -44,37 +44,32 @@ public class CheckInController implements Initializable {
 
     public void goToHome(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/home1.fxml"));
-
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
         HomeController.rootStage.setTitle("Home");
     }
 
     public void goToService(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/service/service.fxml"));
-
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
         HomeController.rootStage.setTitle("Service");
     }
 
     public void goToCustomer(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/customer_info/customer_info.fxml"));
-
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
-        HomeController.rootStage.setTitle("Customer Info");
+        HomeController.rootStage.setTitle("Customer");
     }
 
     public void goToManageRoom(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/room/room.fxml"));
-
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
         HomeController.rootStage.setTitle("Manage Room");
     }
 
     public void goToBills(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills.fxml"));
-
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills2.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
-        HomeController.rootStage.setTitle("Bill Details");
+        HomeController.rootStage.setTitle("Bills");
     }
 
     @Override
@@ -91,6 +86,7 @@ public class CheckInController implements Initializable {
         tbCheckIn.getItems().addAll(list);
         tbCheckIn.refresh();
 
+        // select tableview
         tbCheckIn.setOnMouseClicked(event -> {
             CheckIn checkInSelect = tbCheckIn.getSelectionModel().getSelectedItem();
             if (checkInSelect!=null) {
@@ -102,6 +98,11 @@ public class CheckInController implements Initializable {
                 dpCheckOut.setValue(checkInSelect.getCheckoutDate().toLocalDate());
                 txtNote.setText(checkInSelect.getNote());
                 addBtn.setDisable(true);
+                lbCusName.setText(customer.getName());
+                lbRoomName.setText(roomInfo.getName());
+                lbStatus.setText(roomInfo.getStatus());
+                lbFloor.setText(roomInfo.getFloor());
+                lbRoomType.setText(roomInfo.getRoomtype());
             }
         });
 

@@ -31,7 +31,7 @@ public class HomeController {
     }
 
     public void goToBill(ActionEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../resources/bills/bills.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../resources/bills/bills2.fxml"));
 
         rootStage.setScene(new Scene(root, 1200, 720));
         rootStage.setTitle("Bill Details");

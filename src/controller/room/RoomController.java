@@ -101,21 +101,31 @@ public class RoomController implements Initializable {
     public void gotohome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/home1.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Home");
     }
 
     public void gotoInfoCustomer(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/customer_info/customer_info.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Customer");
     }
 
     public void gotoService(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/service/service.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Service");
     }
 
     public void gotoBills(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills2.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Bills");
+    }
+
+    public void goToCheckIn(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/checkin/checkin.fxml"));
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Check In");
     }
 
     public void addRoom(ActionEvent event) {

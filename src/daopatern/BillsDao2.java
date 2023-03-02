@@ -2,6 +2,7 @@ package daopatern;
 
 import database.Database;
 import entities.Bills;
+import entities.Bills2;
 import javafx.scene.control.Alert;
 
 import java.sql.ResultSet;
@@ -9,22 +10,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class BillsDao implements DAOInterface<Bills>{
-    private static BillsDao instance;
+public class BillsDao2 implements DAOInterface<Bills2> {
+    private static BillsDao2 instance;
 
-    private BillsDao(){
+    private BillsDao2() {
 
     }
 
-    public static BillsDao getInstance() {
-        if(instance == null){
-            instance = new BillsDao();
+    public static BillsDao2 getInstance() {
+        if (instance == null) {
+            instance = new BillsDao2();
         }
         return instance;
     }
 
-    public ArrayList<Bills> getAll() {
-        ArrayList<Bills> listBills = new ArrayList<>();
+    @Override
+    public ArrayList<Bills2> getAll() {
+        ArrayList<Bills2> listBills = new ArrayList<>();
         try {
             Database db = Database.getInstance();
             Statement stt = db.getStatement();
@@ -36,21 +38,21 @@ public class BillsDao implements DAOInterface<Bills>{
                 Integer price = rs.getInt("price");
                 String payment = rs.getString("payments");
                 Date checkoutdate = rs.getDate("checkoutDate");
-                Bills b = new Bills(id, customer_id, price, checkoutdate, payment);
+                Bills2 b = new Bills2(id, customer_id, price, checkoutdate, payment);
                 listBills.add(b);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return listBills;
     }
 
     @Override
-    public boolean create(Bills bills) {
+    public boolean create(Bills2 bills2) {
         try {
             Database db = Database.getInstance();
             Statement stt = db.getStatement();
-            String sql = "insert into bill(customer_id, price, checkoutDate, payments) values('"+bills.getCheckin_id()+"','"+bills.getPrice()+"','"+bills.getCheckoutDate()+"','"+bills.getPayments()+"')";
+            String sql = "insert into bill(customer_id, price, checkoutDate, payments) values('" + bills2.getCustomer_id() + "','" + bills2.getPrice() + "','" + bills2.getCheckoutDate() + "','" + bills2.getPayments() + "')";
             if (stt.executeUpdate(sql) > 0) {
                 return true;
             }
@@ -63,27 +65,17 @@ public class BillsDao implements DAOInterface<Bills>{
     }
 
     @Override
-    public boolean update(Bills bills) {
-        try {
-            Database db = Database.getInstance();
-            Statement stt = db.getStatement();
-            String sql = "update bill set customer_id='" + bills.getCheckin_id()+ "', price = '" + bills.getPrice()+ "', checkoutDate = '" + bills.getCheckoutDate()+ "', payments = '" + bills.getPayments()+ "'where id= " + bills.getId();
-            if (stt.executeUpdate(sql) > 0) {
-                return true;
-            }
-        } catch (Exception e) {
-
-        }
+    public boolean update(Bills2 classes) {
         return false;
     }
 
     @Override
-    public boolean delete(Bills bills) {
+    public boolean delete(Bills2 classes) {
         return false;
     }
 
     @Override
-    public Bills find(Integer id) {
+    public Bills2 find(Integer id) {
         return null;
     }
 }

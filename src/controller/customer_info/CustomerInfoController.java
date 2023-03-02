@@ -39,6 +39,7 @@ public class CustomerInfoController implements Initializable {
     public TextField txtPhone;
     public TextField txtIdentityCard;
     public ComboBox<Customer> cbFind;
+    public Button addBtn;
 
 
     public void addCus(ActionEvent event) {
@@ -136,6 +137,7 @@ public class CustomerInfoController implements Initializable {
         cbFind.getSelectionModel().clearSelection();
         tbCus.getItems().setAll(CusDao.getInstance().getAll());
         tbCus.refresh();
+        addBtn.setDisable(false);
     }
 
     public void searchCus(ActionEvent event) {
@@ -184,6 +186,7 @@ public class CustomerInfoController implements Initializable {
                 txtPhone.setText(selectedCustomer.getPhone());
                 cbNationality.setValue(selectedCustomer.getNationality());
                 cbGender.setValue(selectedCustomer.getGender());
+                addBtn.setDisable(true);
             }
         });
 
@@ -343,26 +346,31 @@ public class CustomerInfoController implements Initializable {
     public void goToHome(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/home1.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Home");
     }
 
     public void goToCheckIn(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/checkin/checkin.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Check In");
     }
 
     public void goToService(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/service/service.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Service");
     }
 
     public void goToManageRoom(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/room/room.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Manage Room");
     }
 
     public void goToBillDetails(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills2.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+        HomeController.rootStage.setTitle("Bills");
     }
 
     public void refreshForm(ActionEvent event) {
