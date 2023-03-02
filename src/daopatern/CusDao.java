@@ -106,4 +106,26 @@ public class CusDao implements DAOInterface<Customer>{
         return null;
     }
 
+    public ArrayList<Customer> getAllCusCheckIn() {
+        ArrayList<Customer> listCus = new ArrayList<>();
+        try {
+            Database db = Database.getInstance();
+            Statement stt = db.getStatement();
+            String sql = "SELECT DISTINCT customer.id, customer.name, customer.cccd, customer.nationality, customer.phone, customer.gender FROM customer INNER JOIN checkin ON customer.id = checkin.customer_id WHERE checkin.checkindate IS NOT NULL;";
+            ResultSet rs = stt.executeQuery(sql);
+            while (rs.next()) {
+                Integer id = rs.getInt("id");
+                String name = rs.getString("name");
+                String cccd = rs.getString("cccd");
+                String nationality = rs.getString("nationality");
+                String phone = rs.getString("phone");
+                String gender = rs.getString("gender");
+                Customer c = new Customer(id, name, cccd, nationality, phone, gender);
+                listCus.add(c);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return listCus;
+    }
 }

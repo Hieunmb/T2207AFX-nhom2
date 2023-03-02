@@ -45,7 +45,7 @@ public class ServiceDao implements DAOInterface<Service> {
         try {
             Database db = Database.getInstance();
             Statement stt = db.getStatement();
-            String sql = "insert into service(id,name,price) values('"+service.getId()+"','"+service.getName()+"','"+service.getPrice()+"')";
+            String sql = "insert into service(name,price) values('"+service.getName()+"','"+service.getPrice()+"')";
             if (stt.executeUpdate(sql) > 0) {
                 return true;
             }

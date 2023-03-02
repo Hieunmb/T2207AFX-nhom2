@@ -148,8 +148,8 @@
                         <Line endX="146.0" layoutX="-3.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="315.0" layoutX="121.0" layoutY="281.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <ComboBox promptText="Please select service name" fx:id="sFind" layoutX="97.0" layoutY="96.0" prefHeight="33.0" prefWidth="281.0" />
-                        <Button onAction="#search" layoutX="151.0" layoutY="197.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Search">
+                        <ComboBox fx:id="sFind" layoutX="97.0" layoutY="96.0" prefHeight="33.0" prefWidth="281.0" promptText="Please select service name" />
+                        <Button layoutX="151.0" layoutY="197.0" mnemonicParsing="false" onAction="#search" prefHeight="40.0" prefWidth="172.0" text="Search">
                             <graphic>
                                 <ImageView fitHeight="25.0" fitWidth="31.0">
                                     <image>
@@ -200,7 +200,7 @@
                         <Line endX="-70.0" layoutX="120.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="202.0" layoutX="-31.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="315.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Button onAction="#add" id="windows8" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button id="windows8" fx:id="addBtn" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" onAction="#add" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
@@ -219,7 +219,7 @@
                             </graphic>
                         </Button>
                         <Line endX="202.0" layoutX="385.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Button onAction="#edit" id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" onAction="#edit" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
@@ -237,7 +237,7 @@
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button onAction="#refreshForm" id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" onAction="#refreshForm" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
@@ -255,7 +255,7 @@
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button onAction="#delete" id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" onAction="#delete" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>

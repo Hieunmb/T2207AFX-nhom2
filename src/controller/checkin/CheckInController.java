@@ -213,7 +213,7 @@ public class CheckInController implements Initializable {
             if (cus_id == null || room_id == null || checkIn == null || checkOut == null) {
                 throw new Exception("Please complete all information");
             }
-            if (checkIn.after(checkOut)) {
+            if (checkIn.toLocalDate().compareTo(checkOut.toLocalDate())>=0) {
                 throw new Exception("Check-out date cannot be before check-in date.");
             }
             CheckIn checkIn1 = new CheckIn(null, cus_id, room_id, checkIn, checkOut, note);

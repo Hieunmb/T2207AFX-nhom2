@@ -90,7 +90,7 @@ public class Bills2Controller extends Component implements Initializable{
         // combobox customer
         try {
             CusDao cd = CusDao.getInstance();
-            ArrayList<Customer> list1 = cd.getAll();
+            ArrayList<Customer> list1 = cd.getAllCusCheckIn();
             cbCheckInID.getItems().addAll(list1);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -105,7 +105,6 @@ public class Bills2Controller extends Component implements Initializable{
                 RoomInfo roomInfo = RoomDao.getInstance().find(checkIn.getRoom_id());
                 lbPrice.setText(String.valueOf(roomInfo.getPrice()));
                 lbRoomID.setText(roomInfo.getName());
-
             }
         });
         ObservableList<String> pm = FXCollections.observableArrayList();
@@ -142,7 +141,7 @@ public class Bills2Controller extends Component implements Initializable{
                 refreshForm(null);
                 throw new Exception("Please select a date first!");
             }
-            if (checkIn.getCheckindate().after(java.sql.Date.valueOf(dpCheckOutDate.getValue()))) {
+            if (checkIn.getCheckindate().toLocalDate().compareTo((dpCheckOutDate.getValue()))>=0) {
                 refreshForm(null);
                 throw new Exception("Check-out date cannot be before check-in date.");
             }

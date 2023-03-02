@@ -29,6 +29,7 @@ public class ServiceController implements Initializable {
     public TextField txtPrice;
     public TextField txtName;
     public ComboBox<Service> sFind;
+    public Button addBtn;
 
     public void goToHome(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/home1.fxml"));
@@ -59,11 +60,10 @@ public class ServiceController implements Initializable {
         try {
             String name = txtName.getText();
             String price = txtPrice.getText();
-            String id = txtId.getText();
-            if (name.isEmpty() || id.isEmpty() || price.isEmpty()) {
+            if (name.isEmpty() || price.isEmpty()) {
                 throw new Exception("Please complete all information");
             }
-            Service c1 = new Service(id, name, price);
+            Service c1 = new Service(null, name, price);
             ServiceDao cd = ServiceDao.getInstance();
             cd.create(c1);
 
@@ -75,6 +75,7 @@ public class ServiceController implements Initializable {
         refreshForm(null);
         tbS.getItems().setAll(ServiceDao.getInstance().getAll());
         tbS.refresh();
+        sFind.getItems().setAll(ServiceDao.getInstance().getAll());
     }
 
     @FXML
@@ -99,6 +100,7 @@ public class ServiceController implements Initializable {
                 txtName.setText(selectedService.getName());
                 txtId.setText(selectedService.getId());
                 txtPrice.setText(selectedService.getPrice());
+                addBtn.setDisable(true);
             }
         });
         try {
@@ -175,6 +177,7 @@ public class ServiceController implements Initializable {
         }
         tbS.getItems().setAll(ServiceDao.getInstance().getAll());
         tbS.refresh();
+        sFind.getItems().setAll(ServiceDao.getInstance().getAll());
     }
 
     public void search(ActionEvent event) {
@@ -207,5 +210,6 @@ public class ServiceController implements Initializable {
         sFind.getSelectionModel().clearSelection();
         tbS.getItems().setAll(ServiceDao.getInstance().getAll());
         tbS.refresh();
+        addBtn.setDisable(false);
     }
 }
