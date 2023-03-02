@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CusDao implements DAOInterface<Customer>{
+public class CusDao implements DAOInterface<Customer>{ // lấy dữ liệu database cho thêm sửa xóa
     private static CusDao instance;
 
     private CusDao() {

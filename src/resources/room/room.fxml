@@ -12,81 +12,88 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.room.RoomController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.room.RoomController">
     <children>
-        <ImageView fitHeight="720.0" fitWidth="1200.0" opacity="0.59" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ImageView fitHeight="720.0" fitWidth="1200.0" opacity="0.59" pickOnBounds="true" preserveRatio="true"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
             <image>
-                <Image url="@../../images/home1.jpeg" />
+                <Image url="@../../images/home1.jpeg"/>
             </image>
         </ImageView>
-        <Button mnemonicParsing="false" onAction="#gotohome" prefHeight="40.0" prefWidth="150.0" text="HOME">
+        <Button onAction="#gotohome" mnemonicParsing="false"  prefHeight="40.0" prefWidth="150.0" text="HOME">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
-                        <Image url="@../../images/icons8-hotel-64.png" />
+                        <Image url="@../../images/icons8-hotel-64.png"/>
                     </image>
                 </ImageView>
             </graphic>
             <font>
-                <Font name="Arial Bold" size="16.0" />
+                <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="150.0" mnemonicParsing="false" onAction="#gotoInfoCustomer" prefHeight="40.0" prefWidth="150.0" text="Customers">
+        <Button onAction="#gotoInfoCustomer" layoutX="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
+                text="Customers">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
-                        <Image url="@../../images/support.png" />
+                        <Image url="@../../images/support.png"/>
                     </image>
                 </ImageView>
             </graphic>
             <font>
-                <Font name="Arial Bold" size="16.0" />
+                <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="300.0" mnemonicParsing="false" onAction="#gotoService" prefHeight="40.0" prefWidth="150.0" text="Service">
+        <Button onAction="#gotoService" layoutX="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
+                text="Service">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
-                        <Image url="@../../images/service.png" />
+                        <Image url="@../../images/service.png"/>
                     </image>
                 </ImageView>
             </graphic>
             <font>
-                <Font name="Arial Bold" size="16.0" />
+                <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="450.0" mnemonicParsing="false" onAction="#goToCheckIn" prefHeight="40.0" prefWidth="150.0" text="Check in">
+        <Button onAction="#goToCheckIn" layoutX="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Check in">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
-                        <Image url="@../../images/check-in(1).png" />
+                        <Image url="@../../images/check-in(1).png"/>
                     </image>
                 </ImageView>
             </graphic>
             <font>
-                <Font name="Arial Bold" size="16.0" />
+                <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button layoutX="600.0" mnemonicParsing="false" onAction="#gotoBills" prefHeight="40.0" prefWidth="150.0" text="Bills">
+        <Button onAction="#gotoBills" layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
+                text="Bills">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
                     <image>
-                        <Image url="@../../images/invoice.png" />
+                        <Image url="@../../images/invoice.png"/>
                     </image>
                 </ImageView>
             </graphic>
             <font>
-                <Font name="Arial Bold" size="16.0" />
+                <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Label alignment="CENTER" layoutX="880.0" layoutY="5.0" prefHeight="70.0" prefWidth="320.0" text="Room" textAlignment="CENTER" AnchorPane.leftAnchor="880.0">
+        <Label alignment="CENTER" layoutX="880.0" layoutY="5.0" prefHeight="70.0" prefWidth="320.0" text="Room"
+               textAlignment="CENTER" AnchorPane.leftAnchor="880.0">
             <font>
-                <Font name="Palatino Linotype Bold" size="35.0" />
+                <Font name="Palatino Linotype Bold" size="35.0"/>
             </font>
             <graphic>
                 <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../images/hotel.png" />
+                        <Image url="@../../images/hotel.png"/>
                     </image>
                 </ImageView>
             </graphic>
@@ -95,74 +102,89 @@
             <children>
                 <Pane prefHeight="343.0" prefWidth="757.0">
                     <children>
-                        <Line endX="450.0" layoutX="275.0" layoutY="15.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="-70.0" layoutX="120.0" layoutY="15.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="450.0" layoutX="275.0" layoutY="15.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="-70.0" layoutX="120.0" layoutY="15.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
                         <Label layoutX="73.0" layoutY="-6.0" prefHeight="40.0" prefWidth="115.0" text="Room">
                             <font>
-                                <Font name="Palatino Linotype Bold" size="27.0" />
+                                <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
                         </Label>
-                        <Line endX="195.0" layoutX="-27.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="195.0" layoutX="678.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="195.0" layoutX="-27.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="195.0" layoutX="678.0" layoutY="162.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
                         <Label layoutX="34.0" layoutY="64.0" prefHeight="40.0" prefWidth="154.0" text="Room's Name">
                             <font>
-                                <Font name="Arial Bold" size="18.0" />
+                                <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <TextField fx:id="txtName" layoutX="168.0" layoutY="68.0" prefHeight="33.0" prefWidth="206.0" />
+                        <TextField fx:id="txtName" layoutX="168.0" layoutY="68.0" prefHeight="33.0" prefWidth="206.0"/>
                         <Label layoutX="35.0" layoutY="142.0" prefHeight="40.0" prefWidth="105.0" text="Room Type">
                             <font>
-                                <Font name="Arial Bold" size="18.0" />
+                                <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
                         <Label layoutX="396.0" layoutY="144.0" prefHeight="40.0" prefWidth="115.0" text="Room Rates">
                             <font>
-                                <Font name="Arial Bold" size="18.0" />
+                                <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
                         <Label layoutX="396.0" layoutY="64.0" prefHeight="40.0" prefWidth="105.0" text="Status">
                             <font>
-                                <Font name="Arial Bold" size="18.0" />
+                                <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <ComboBox fx:id="cbRoomType" layoutX="168.0" layoutY="148.0" prefHeight="33.0" prefWidth="201.0" promptText="roomtype" />
-                        <ComboBox fx:id="cbStatus" layoutX="511.0" layoutY="68.0" prefHeight="33.0" prefWidth="203.0" promptText="Status" />
-                        <TextField fx:id="txtPrice" layoutX="516.0" layoutY="148.0" prefHeight="33.0" prefWidth="206.0" />
+                        <ComboBox fx:id="cbRoomType" layoutX="168.0" layoutY="148.0" prefHeight="33.0" prefWidth="201.0"
+                                  promptText="roomtype"/>
+                        <ComboBox fx:id="cbStatus" layoutX="511.0" layoutY="68.0" prefHeight="33.0" prefWidth="203.0"
+                                  promptText="Status"/>
+                        <TextField fx:id="txtPrice" layoutX="516.0" layoutY="148.0" prefHeight="33.0"
+                                   prefWidth="206.0"/>
                         <Label layoutX="35.0" layoutY="212.0" prefHeight="40.0" prefWidth="105.0" text="Floor">
                             <font>
-                                <Font name="Arial Bold" size="18.0" />
+                                <Font name="Arial Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <ComboBox fx:id="cbFloor" layoutX="168.0" layoutY="216.0" prefHeight="33.0" prefWidth="201.0" promptText="floor" />
+                        <ComboBox fx:id="cbFloor" layoutX="168.0" layoutY="216.0" prefHeight="33.0" prefWidth="201.0"
+                                  promptText="floor"/>
                     </children>
                 </Pane>
                 <Pane layoutX="736.0" prefHeight="343.0" prefWidth="456.0">
                     <children>
-                        <Line endX="71.0" layoutX="365.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Label layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="202.0" text="Room Search">
+                        <Line endX="71.0" layoutX="365.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7"/>
+                        <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Label  layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="202.0" text="Room Search">
                             <font>
-                                <Font name="Palatino Linotype Bold" size="27.0" />
+                                <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
                         </Label>
-                        <Line endX="146.0" layoutX="-3.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="315.0" layoutX="121.0" layoutY="281.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <ComboBox fx:id="cbFind" layoutX="93.0" layoutY="85.0" prefHeight="40.0" prefWidth="288.0" promptText="Please select room name" />
+                        <Line endX="146.0" layoutX="-3.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="315.0" layoutX="121.0" layoutY="281.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <ComboBox fx:id="rdFind" layoutX="93.0" layoutY="85.0" prefHeight="40.0" prefWidth="288.0"
+                                  promptText="Please select room name"/>
                         <Label layoutX="62.0" layoutY="289.0" prefHeight="40.0" prefWidth="115.0" text="Handle">
                             <font>
-                                <Font name="Palatino Linotype Bold" size="27.0" />
+                                <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
                         </Label>
-                        <Button layoutX="162.0" layoutY="172.0" mnemonicParsing="false" onAction="#gotoBills" prefHeight="40.0" prefWidth="150.0" text="Search">
+                        <Button layoutX="162.0" layoutY="172.0" mnemonicParsing="false" onAction="#searchRoom"
+                                prefHeight="40.0" prefWidth="150.0" text="Search">
                             <font>
-                                <Font name="Arial Bold" size="16.0" />
+                                <Font name="Arial Bold" size="16.0"/>
                             </font>
                             <graphic>
                                 <ImageView fitHeight="20" fitWidth="30">
                                     <image>
-                                        <Image url="@../../images/icons8-search.gif" />
+                                        <Image url="@../../images/icons8-search.gif"/>
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -171,106 +193,127 @@
                 </Pane>
                 <Pane layoutY="308.0" prefHeight="343.0" prefWidth="757.0">
                     <children>
-                        <Line endX="390.0" layoutX="334.0" layoutY="49.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="-70.0" layoutX="120.0" layoutY="52.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="390.0" layoutX="334.0" layoutY="49.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="-70.0" layoutX="120.0" layoutY="52.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
                         <Label layoutX="81.0" layoutY="14.0" prefHeight="40.0" prefWidth="185.0" text="Room List">
                             <font>
-                                <Font name="Palatine Linotype Bold" size="27.0" />
+                                <Font name="Palatine Linotype Bold" size="27.0"/>
                             </font>
                         </Label>
-                        <Line endX="156.0" layoutX="-8.0" layoutY="181.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="156.0" layoutX="696.0" layoutY="181.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
+                        <Line endX="156.0" layoutX="-8.0" layoutY="181.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="603.0" layoutX="121.0" layoutY="309.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="156.0" layoutX="696.0" layoutY="181.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
                         <TableView fx:id="tbRoom" layoutX="24.0" layoutY="54.0" prefHeight="253.0" prefWidth="697.0">
                             <columns>
-                                <TableColumn fx:id="cId" prefWidth="32.0" text="ID" />
-                                <TableColumn fx:id="cName" prefWidth="126.0" text="Name" />
-                                <TableColumn fx:id="cRoomType" prefWidth="199.0" text="RoomType" />
-                                <TableColumn fx:id="cStatus" prefWidth="140.0" text="Status" />
-                                <TableColumn fx:id="cFloor" minWidth="0.0" prefWidth="105.0" text="Floor" />
-                                <TableColumn fx:id="cPrice" prefWidth="94.0" text="Price" />
+                                <TableColumn fx:id="cId" prefWidth="32.0" text="ID"/>
+                                <TableColumn fx:id="cName" prefWidth="126.0" text="Name"/>
+                                <TableColumn fx:id="cRoomType" prefWidth="199.0" text="RoomType"/>
+                                <TableColumn fx:id="cStatus" prefWidth="140.0" text="Status"/>
+                                <TableColumn fx:id="cFloor" minWidth="0.0" prefWidth="105.0" text="Floor"/>
+                                <TableColumn fx:id="cPrice" prefWidth="94.0" text="Price"/>
                             </columns>
                         </TableView>
-                        <Button layoutX="635.0" layoutY="8.0" mnemonicParsing="false" onAction="#unselect" prefHeight="16.0" prefWidth="90.0" text="unselect">
+                        <Button layoutX="635.0" layoutY="8.0" mnemonicParsing="false" onAction="#unselect"
+                                prefHeight="16.0" prefWidth="90.0" text="unselect">
                             <font>
-                                <Font name="Arial Bold" size="16.0" />
+                                <Font name="Arial Bold" size="16.0"/>
                             </font>
                         </Button>
                     </children>
                 </Pane>
                 <Pane layoutX="744.0" layoutY="314.0" prefHeight="343.0" prefWidth="456.0">
                     <children>
-                        <Line endX="162.0" layoutX="274.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="-70.0" layoutX="120.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="202.0" layoutX="-31.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Line endX="315.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Button id="windows8" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Line endX="162.0" layoutX="274.0" scaleY="2.0" startX="-100.0" stroke="#2212d7"/>
+                        <Line endX="-70.0" layoutX="120.0" scaleY="2.0" startX="-100.0" stroke="#2212d7"/>
+                        <Line endX="202.0" layoutX="-31.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Line endX="315.0" layoutX="121.0" layoutY="302.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Button onAction="#addRoom" id="windows8" layoutX="78.0" layoutY="14.0" mnemonicParsing="false" prefHeight="135.0"
+                                prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
-                                        <ImageView fitHeight="99.0" fitWidth="104.0" layoutX="-10.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="99.0" fitWidth="104.0" layoutX="-10.0" layoutY="3.0"
+                                                   pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/Add.png" />
+                                                <Image url="@../../images/Add.png"/>
                                             </image>
                                         </ImageView>
-                                        <Text layoutX="18.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add" textAlignment="CENTER">
+                                        <Text layoutX="18.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              text="Add" textAlignment="CENTER">
                                             <font>
-                                                <Font name="Bell MT Bold" size="23.0" />
+                                                <Font name="Bell MT Bold" size="23.0"/>
                                             </font>
                                         </Text>
                                     </children>
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Line endX="202.0" layoutX="385.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Button id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" onAction="#editRoom" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Line endX="202.0" layoutX="385.0" layoutY="151.0" rotate="90.0" scaleY="2.0" startX="-100.0"
+                              stroke="#2212d7"/>
+                        <Button onAction="#editRoom" id="windows8" layoutX="254.0" layoutY="16.0" mnemonicParsing="false" prefHeight="135.0"
+                                prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
-                                        <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="-14.0"
+                                                   pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/icons8-ok-48.png" />
+                                                <Image url="@../../images/icons8-ok-48.png"/>
                                             </image>
                                         </ImageView>
-                                        <Text layoutX="17.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" textAlignment="CENTER">
+                                        <Text layoutX="17.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              text="Edit" textAlignment="CENTER">
                                             <font>
-                                                <Font name="Bell MT Bold" size="23.0" />
+                                                <Font name="Bell MT Bold" size="23.0"/>
                                             </font>
                                         </Text>
                                     </children>
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" onAction="#refresh" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button onAction="#refresh" id="windows8" layoutX="254.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0"
+                                prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
-                                        <ImageView fitHeight="89.0" fitWidth="96.0" layoutX="-3.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="89.0" fitWidth="96.0" layoutX="-3.0" layoutY="6.0"
+                                                   pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/refresh-flat.png" />
+                                                <Image url="@../../images/refresh-flat.png"/>
                                             </image>
                                         </ImageView>
-                                        <Text layoutX="7.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Refesh" textAlignment="CENTER">
+                                        <Text layoutX="7.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              text="Refesh" textAlignment="CENTER">
                                             <font>
-                                                <Font name="Bell MT Bold" size="23.0" />
+                                                <Font name="Bell MT Bold" size="23.0"/>
                                             </font>
                                         </Text>
                                     </children>
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" onAction="#deleteRoom" prefHeight="135.0" prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button onAction="#deleteRoom" id="windows8" layoutX="78.0" layoutY="161.0" mnemonicParsing="false" prefHeight="135.0"
+                                prefWidth="138.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
-                                        <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="-13.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="-13.0"
+                                                   pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../images/icons8-cancel-48.png" />
+                                                <Image url="@../../images/icons8-cancel-48.png"/>
                                             </image>
                                         </ImageView>
-                                        <Text layoutX="-1.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove" textAlignment="CENTER">
+                                        <Text layoutX="-1.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              text="Remove" textAlignment="CENTER">
                                             <font>
-                                                <Font name="Bell MT Bold" size="23.0" />
+                                                <Font name="Bell MT Bold" size="23.0"/>
                                             </font>
                                         </Text>
                                     </children>

@@ -3,10 +3,7 @@ package controller.room;
 import controller.HomeController;
 import daopatern.CusDao;
 import daopatern.RoomDao;
-import entities.Floor;
-import entities.Room;
-import entities.RoomInfo;
-import entities.RoomType;
+import entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,10 +33,11 @@ public class RoomController implements Initializable {
     public TableColumn<RoomInfo, String> cStatus;
     public TableColumn<RoomInfo, String> cFloor;
     public TableColumn<RoomInfo, Double> cPrice;
+    public ComboBox<Room> rdFind;
 
     public void unselect(ActionEvent event) {
         tbRoom.getSelectionModel().clearSelection();
-//        refreshForm(null);
+        refresh(null);
 //        cbFind.getSelectionModel().clearSelection();
         tbRoom.getItems().setAll(RoomDao.getInstance().getAll());
         tbRoom.refresh();
@@ -66,6 +64,7 @@ public class RoomController implements Initializable {
                 txtName.setText(roomInfoSelect.getName());
                 cbStatus.setValue(roomInfoSelect.getStatus());
                 txtPrice.setText(String.valueOf(roomInfoSelect.getPrice()));
+//                cbRoomType.setValue();
             }
         });
 
@@ -116,12 +115,6 @@ public class RoomController implements Initializable {
         HomeController.rootStage.setTitle("Service");
     }
 
-    public void gotoBills(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills2.fxml"));
-        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
-        HomeController.rootStage.setTitle("Bills");
-    }
-
     public void goToCheckIn(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/checkin/checkin.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
@@ -135,12 +128,40 @@ public class RoomController implements Initializable {
     public void editRoom(ActionEvent event) {
 
     }
-
+    //unselect thong tin tren bang
     public void refresh(ActionEvent event) {
-
+        txtName.setText(null);
+        cbRoomType.getSelectionModel().clearSelection();
+        cbFloor.getSelectionModel().clearSelection();
+        cbStatus.getSelectionModel().clearSelection();
+        txtPrice.setText(null);
     }
 
     public void deleteRoom(ActionEvent event) {
 
+    }
+
+    public void searchRoom(ActionEvent event) {
+        Room room = rdFind.getSelectionModel().getSelectedItem();
+        if (room == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("Please select a user to find.");
+            alert.showAndWait();
+        } else {
+            try {
+                Integer id = room.getId();
+                RoomDao roomdao = RoomDao.getInstance();
+                RoomInfo r = roomdao.find(id);
+                ArrayList<RoomInfo> list = new ArrayList<>();
+                list.add(r);
+                tbRoom.getItems().setAll(list);
+                tbRoom.refresh();
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(e.getMessage());
+                alert.show();
+            }
+        }
     }
 }
