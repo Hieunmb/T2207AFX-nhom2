@@ -158,7 +158,7 @@
                         <Line endX="71.0" layoutX="365.0" layoutY="35.0" scaleY="2.0" startX="-100.0" stroke="#2212d7"/>
                         <Line endX="-70.0" layoutX="120.0" layoutY="35.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <Label layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="202.0" text="Room Search">
+                        <Label  layoutX="63.0" layoutY="14.0" prefHeight="40.0" prefWidth="202.0" text="Room Search">
                             <font>
                                 <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
@@ -169,14 +169,14 @@
                               stroke="#2212d7"/>
                         <Line endX="146.0" layoutX="413.0" layoutY="158.0" rotate="90.0" scaleY="2.0" startX="-100.0"
                               stroke="#2212d7"/>
-                        <ComboBox layoutX="93.0" layoutY="85.0" prefHeight="40.0" prefWidth="288.0"
+                        <ComboBox fx:id="rdFind" layoutX="93.0" layoutY="85.0" prefHeight="40.0" prefWidth="288.0"
                                   promptText="Please select room name"/>
                         <Label layoutX="62.0" layoutY="289.0" prefHeight="40.0" prefWidth="115.0" text="Handle">
                             <font>
                                 <Font name="Palatino Linotype Bold" size="27.0"/>
                             </font>
                         </Label>
-                        <Button layoutX="162.0" layoutY="172.0" mnemonicParsing="false" onAction="#gotoBills"
+                        <Button layoutX="162.0" layoutY="172.0" mnemonicParsing="false" onAction="#searchRoom"
                                 prefHeight="40.0" prefWidth="150.0" text="Search">
                             <font>
                                 <Font name="Arial Bold" size="16.0"/>
