@@ -172,6 +172,7 @@ public class Bills2Controller extends Component implements Initializable{
         tbBill.getItems().setAll(BillsDao2.getInstance().getAll());
         tbBill.refresh();
         cbCheckInID.getItems().setAll(CusDao.getInstance().getAll());
+        cbCheckInID.getItems().setAll(CusDao.getInstance().getAllCusCheckIn());
     }
 
     public void printBills(ActionEvent event) throws IOException {
