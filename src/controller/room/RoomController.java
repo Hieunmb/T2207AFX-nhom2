@@ -121,6 +121,11 @@ public class RoomController implements Initializable {
         HomeController.rootStage.setTitle("Check In");
     }
 
+    public void goToBill(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills2.fxml"));
+        HomeController.rootStage.setScene(new Scene(root, 1200, 720));
+    }
+
     public void addRoom(ActionEvent event) {
 
     }

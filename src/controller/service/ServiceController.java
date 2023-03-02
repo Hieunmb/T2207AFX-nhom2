@@ -47,7 +47,7 @@ public class ServiceController implements Initializable {
     }
 
     public void goToBill(ActionEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../resources/bills/bills2.fxml"));
         HomeController.rootStage.setScene(new Scene(root, 1200, 720));
     }
 

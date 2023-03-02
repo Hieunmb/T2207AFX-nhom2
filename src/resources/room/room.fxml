@@ -72,7 +72,7 @@
                 <Font name="Arial Bold" size="16.0"/>
             </font>
         </Button>
-        <Button onAction="#gotoBills" layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
+        <Button onAction="#goToBill" layoutX="600.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
                 text="Bills">
             <graphic>
                 <ImageView fitHeight="20" fitWidth="30">
