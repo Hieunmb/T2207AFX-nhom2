@@ -230,6 +230,7 @@ public class CheckInController implements Initializable {
         tbCheckIn.getItems().setAll(CheckInDao.getInstance().getAll());
         tbCheckIn.refresh();
         cbRoomID.getItems().setAll(RoomDao.getInstance().getAllNotBooked());
+        cbSearch.getItems().setAll(CheckInDao.getInstance().getAll());
     }
 
     public void editCheckIn(ActionEvent event) {
@@ -302,5 +303,6 @@ public class CheckInController implements Initializable {
         tbCheckIn.getItems().setAll(CheckInDao.getInstance().getAll());
         tbCheckIn.refresh();
         cbRoomID.getItems().setAll(RoomDao.getInstance().getAllNotBooked());
+        cbSearch.getItems().setAll(CheckInDao.getInstance().getAll());
     }
 }
