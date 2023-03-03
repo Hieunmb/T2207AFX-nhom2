@@ -33,7 +33,7 @@ public class RoomController implements Initializable {
     public TableColumn<RoomInfo, String> cStatus;
     public TableColumn<RoomInfo, String> cFloor;
     public TableColumn<RoomInfo, Double> cPrice;
-    public ComboBox<Room> rdFind;
+    public ComboBox<RoomInfo> rdFind;
 
     public void unselect(ActionEvent event) {
         tbRoom.getSelectionModel().clearSelection();
@@ -84,6 +84,16 @@ public class RoomController implements Initializable {
             RoomDao rd1 = RoomDao.getInstance();
             ArrayList<RoomType> list1 = rd1.getAllRoomType();
             cbRoomType.getItems().addAll(list1);
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(e.getMessage());
+            alert.show();
+        }
+
+        try {
+            RoomDao roomDao = RoomDao.getInstance();
+            ArrayList<RoomInfo> list3 = roomDao.getAll();
+            rdFind.getItems().addAll(list3);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(e.getMessage());
@@ -147,7 +157,7 @@ public class RoomController implements Initializable {
     }
 
     public void searchRoom(ActionEvent event) {
-        Room room = rdFind.getSelectionModel().getSelectedItem();
+        RoomInfo room = rdFind.getSelectionModel().getSelectedItem();
         if (room == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
