@@ -250,7 +250,7 @@ public class CheckInController implements Initializable {
                 if (checkInSelect.getCustomer_id() == null|| checkInSelect.getRoom_id() == null || checkInSelect.getCheckindate() == null || checkInSelect.getCheckoutDate() == null) {
                     throw new Exception("Please complete all information");
                 }
-                if (checkInSelect.getCheckindate().after(checkInSelect.getCheckoutDate())) {
+                if (checkInSelect.getCheckindate().toLocalDate().compareTo(checkInSelect.getCheckoutDate().toLocalDate())>0) {
                     throw new Exception("Check-out date cannot be before check-in date.");
                 }
                 CheckInDao cd = CheckInDao.getInstance();
