@@ -101,7 +101,7 @@
                         <Line endX="180.0" layoutX="-20.0" layoutY="155.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="603.0" layoutX="121.0" layoutY="295.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <Line endX="180.0" layoutX="685.0" layoutY="155.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                        <Label layoutX="407.0" layoutY="115.0" prefHeight="40.0" prefWidth="65.0" text="Price">
+                        <Label layoutX="381.0" layoutY="115.0" prefHeight="40.0" prefWidth="113.0" text="Price Room">
                             <font>
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
@@ -161,11 +161,13 @@
                         <Line endX="158.0" layoutX="695.0" layoutY="179.0" rotate="90.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
                         <TableView fx:id="tbBill" layoutX="24.0" layoutY="53.0" prefHeight="253.0" prefWidth="697.0">
                             <columns>
-                                <TableColumn fx:id="cID" prefWidth="29.0" text="ID" />
-                                <TableColumn fx:id="cCusID" prefWidth="143.0" text="CheckIn's ID" />
-                                <TableColumn fx:id="cPrice" prefWidth="170.0" text="Price" />
-                                <TableColumn fx:id="cCheckOutDate" prefWidth="175.0" text="CheckoutDate" />
-                                <TableColumn fx:id="cPayMentType" prefWidth="178.0" text="Payment Type" />
+                                <TableColumn fx:id="cID" prefWidth="25.0" text="ID" />
+                                <TableColumn fx:id="cCusID" prefWidth="131.0" text="Customer" />
+                                <TableColumn fx:id="cPrice" prefWidth="73.0" text="Price" />
+                        <TableColumn fx:id="cCheckInDate" prefWidth="163.0" text="CheckinDate" />
+                                <TableColumn fx:id="cCheckOutDate" prefWidth="172.0" text="CheckoutDate" />
+                                <TableColumn fx:id="cPayMentType" prefWidth="77.0" text="Payment" />
+                        <TableColumn fx:id="cStatus" prefWidth="55.0" text="Status" />
                             </columns>
                         </TableView>
                         <Button layoutX="604.0" layoutY="8.0" mnemonicParsing="false" onAction="#unSelect" prefHeight="32.0" prefWidth="121.0" text="unselect">
@@ -196,7 +198,7 @@
                                 </Pane>
                             </graphic>
                         </Button>
-                        <Button onAction="#printBills" id="windows8" layoutX="129.0" layoutY="43.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                        <Button id="windows8" layoutX="129.0" layoutY="43.0" mnemonicParsing="false" onAction="#printBills" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                             <graphic>
                                 <Pane prefHeight="128.0" prefWidth="154.0">
                                     <children>
@@ -205,7 +207,7 @@
                                                 <Image url="@../../images/check-out(2).png" />
                                             </image>
                                         </ImageView>
-                                        <Text layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Print" textAlignment="CENTER">
+                                        <Text layoutX="-21.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payments" textAlignment="CENTER">
                                             <font>
                                                 <Font size="19.0" />
                                             </font>
@@ -219,7 +221,7 @@
                 </Pane>
                 <Line endX="202.0" layoutX="818.0" layoutY="360.0" rotate="90.0" scaleY="2.0" startX="-307.0" stroke="#2212d7" />
                 <Line endX="-70.0" layoutX="866.0" layoutY="106.0" scaleY="2.0" startX="-100.0" stroke="#2212d7" />
-                <Button onAction="#addBill" id="windows8" layoutX="869.0" layoutY="129.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
+                <Button id="windows8" layoutX="869.0" layoutY="129.0" mnemonicParsing="false" onAction="#addBill" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 20;" stylesheets="@../dashboard.css">
                     <graphic>
                         <Pane prefHeight="128.0" prefWidth="154.0">
                             <children>

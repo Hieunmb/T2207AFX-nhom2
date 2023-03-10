@@ -33,7 +33,7 @@ public class CheckInDao implements DAOInterface<CheckIn>{
                 Integer id = rs.getInt("id");
                 Integer customer_id = rs.getInt("customer_id");
                 Integer room_id = rs.getInt("room_id");
-                Date checkIn = rs.getDate("checkindate");
+                String checkIn = rs.getString("checkindate");
                 Date checkOut = rs.getDate("checkoutDate");
                 String note = rs.getString("note");
                 CheckIn c = new CheckIn(id, customer_id, room_id, checkIn, checkOut, note);
@@ -100,7 +100,7 @@ public class CheckInDao implements DAOInterface<CheckIn>{
             while (rs.next()) {
                 Integer customer_id = rs.getInt("customer_id");
                 Integer room_id = rs.getInt("room_id");
-                Date checkIn = rs.getDate("checkindate");
+                String checkIn = rs.getString("checkindate");
                 Date checkOut = rs.getDate("checkoutDate");
                 String note = rs.getString("note");
                 CheckIn c = new CheckIn(id, customer_id, room_id, checkIn, checkOut, note);
@@ -149,7 +149,7 @@ public class CheckInDao implements DAOInterface<CheckIn>{
             while (rs.next()) {
                 Integer id = rs.getInt("id");
                 Integer room_id = rs.getInt("room_id");
-                Date checkIn = rs.getDate("checkindate");
+                String checkIn = rs.getString("checkindate");
                 Date checkOut = rs.getDate("checkoutDate");
                 String note = rs.getString("note");
                 CheckIn c = new CheckIn(id, cid, room_id, checkIn, checkOut, note);

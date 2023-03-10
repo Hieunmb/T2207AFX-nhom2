@@ -1,20 +1,17 @@
 package entities;
 
-import java.util.Date;
-
-public class Bills2 {
+public class Bills3 {
     private Integer id;
-    private Integer customer_id;
+    private String name;
     private Float price;
     private String checkinDate;
     private String checkoutDate;
     private String payments;
-
     private String status;
 
-    public Bills2(Integer id, Integer customer_id, Float price, String checkinDate, String checkoutDate, String payments, String status) {
+    public Bills3(Integer id, String name, Float price, String checkinDate, String checkoutDate, String payments, String status) {
         this.id = id;
-        this.customer_id = customer_id;
+        this.name = name;
         this.price = price;
         this.checkinDate = checkinDate;
         this.checkoutDate = checkoutDate;
@@ -26,17 +23,17 @@ public class Bills2 {
         return id;
     }
 
-    public Bills2 setId(Integer id) {
+    public Bills3 setId(Integer id) {
         this.id = id;
         return this;
     }
 
-    public Integer getCustomer_id() {
-        return customer_id;
+    public String getName() {
+        return name;
     }
 
-    public Bills2 setCustomer_id(Integer customer_id) {
-        this.customer_id = customer_id;
+    public Bills3 setName(String name) {
+        this.name = name;
         return this;
     }
 
@@ -44,7 +41,7 @@ public class Bills2 {
         return price;
     }
 
-    public Bills2 setPrice(Float price) {
+    public Bills3 setPrice(Float price) {
         this.price = price;
         return this;
     }
@@ -53,7 +50,7 @@ public class Bills2 {
         return checkinDate;
     }
 
-    public Bills2 setCheckinDate(String checkinDate) {
+    public Bills3 setCheckinDate(String checkinDate) {
         this.checkinDate = checkinDate;
         return this;
     }
@@ -62,7 +59,7 @@ public class Bills2 {
         return checkoutDate;
     }
 
-    public Bills2 setCheckoutDate(String checkoutDate) {
+    public Bills3 setCheckoutDate(String checkoutDate) {
         this.checkoutDate = checkoutDate;
         return this;
     }
@@ -71,7 +68,7 @@ public class Bills2 {
         return payments;
     }
 
-    public Bills2 setPayments(String payments) {
+    public Bills3 setPayments(String payments) {
         this.payments = payments;
         return this;
     }
@@ -80,7 +77,7 @@ public class Bills2 {
         return status;
     }
 
-    public Bills2 setStatus(String status) {
+    public Bills3 setStatus(String status) {
         this.status = status;
         return this;
     }

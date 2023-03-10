@@ -15,6 +15,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -74,6 +77,7 @@ public class CheckInController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.dpCheckIn.setDisable(true);
         cID.setCellValueFactory(new PropertyValueFactory<>("id"));
         cCusID.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
         cRoomID.setCellValueFactory(new PropertyValueFactory<>("room_id"));
@@ -94,12 +98,13 @@ public class CheckInController implements Initializable {
                 cdCusID.setValue(customer);
                 RoomInfo roomInfo = RoomDao.getInstance().find(checkInSelect.getRoom_id());
                 cbRoomID.setValue(roomInfo);
-                dpCheckIn.setValue(checkInSelect.getCheckindate().toLocalDate());
+//                dpCheckIn.setValue(checkInSelect.getCheckindate().toLocalDate());
                 dpCheckOut.setValue(checkInSelect.getCheckoutDate().toLocalDate());
+                dpCheckOut.setDisable(true);
                 txtNote.setText(checkInSelect.getNote());
                 addBtn.setDisable(true);
-                lbCusName.setText(customer.getName());
-                lbRoomName.setText(roomInfo.getName());
+                lbCusName.setText(customer.getCccd());
+                lbRoomName.setText(String.valueOf(roomInfo.getId()));
                 lbStatus.setText(roomInfo.getStatus());
                 lbFloor.setText(roomInfo.getFloor());
                 lbRoomType.setText(roomInfo.getRoomtype());
@@ -119,7 +124,7 @@ public class CheckInController implements Initializable {
         cdCusID.setOnAction(event -> {
             Customer customerSelect = cdCusID.getValue();
             if (customerSelect !=null) {
-                lbCusName.setText(customerSelect.getName());
+                lbCusName.setText(customerSelect.getCccd());
             }
         });
 
@@ -136,7 +141,7 @@ public class CheckInController implements Initializable {
         cbRoomID.setOnAction(event -> {
             RoomInfo roomInfoSelect = cbRoomID.getValue();
             if (roomInfoSelect !=null) {
-                lbRoomName.setText(roomInfoSelect.getName());
+                lbRoomName.setText(String.valueOf(roomInfoSelect.getId()));
                 lbStatus.setText(roomInfoSelect.getStatus());
                 lbFloor.setText(roomInfoSelect.getFloor());
                 lbRoomType.setText(roomInfoSelect.getRoomtype());
@@ -163,6 +168,7 @@ public class CheckInController implements Initializable {
         tbCheckIn.refresh();
         addBtn.setDisable(false);
         cbSearch.getSelectionModel().clearSelection();
+        dpCheckOut.setDisable(false);
     }
 
     public void searchCheckIn(ActionEvent event) {
@@ -194,7 +200,7 @@ public class CheckInController implements Initializable {
         cdCusID.setValue(null);
         cbRoomID.setValue(null);
         dpCheckOut.setValue(null);
-        dpCheckIn.setValue(null);
+//        dpCheckIn.setValue(null);
         txtNote.clear();
         lbCusName.setText(null);
         lbFloor.setText(null);
@@ -207,13 +213,16 @@ public class CheckInController implements Initializable {
         try {
             Integer cus_id = cdCusID.getValue().getId();
             Integer room_id = cbRoomID.getValue().getId();
-            Date checkIn = Date.valueOf(dpCheckIn.getValue());
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formatDateTime = now.format(formatter);
+            String checkIn = formatDateTime;
             Date checkOut = Date.valueOf(dpCheckOut.getValue());
             String note = txtNote.getText();
-            if (cus_id == null || room_id == null || checkIn == null || checkOut == null) {
+            if (cus_id == null || room_id == null || checkOut == null) {
                 throw new Exception("Please complete all information");
             }
-            if (checkIn.toLocalDate().compareTo(checkOut.toLocalDate())>=0) {
+            if (now.toLocalDate().compareTo(checkOut.toLocalDate())>=0) {
                 throw new Exception("Check-out date cannot be before check-in date.");
             }
             CheckIn checkIn1 = new CheckIn(null, cus_id, room_id, checkIn, checkOut, note);
@@ -244,15 +253,19 @@ public class CheckInController implements Initializable {
             try {
                 checkInSelect.setCustomer_id(cdCusID.getValue().getId());
                 checkInSelect.setRoom_id(cbRoomID.getValue().getId());
-                checkInSelect.setCheckindate(Date.valueOf(dpCheckIn.getValue()));
+//                checkInSelect.setCheckindate(Date.valueOf(dpCheckIn.getValue()));
                 checkInSelect.setCheckoutDate(Date.valueOf(dpCheckOut.getValue()));
                 checkInSelect.setNote(txtNote.getText());
                 if (checkInSelect.getCustomer_id() == null|| checkInSelect.getRoom_id() == null || checkInSelect.getCheckindate() == null || checkInSelect.getCheckoutDate() == null) {
                     throw new Exception("Please complete all information");
                 }
-                if (checkInSelect.getCheckindate().toLocalDate().compareTo(checkInSelect.getCheckoutDate().toLocalDate())>0) {
-                    throw new Exception("Check-out date cannot be before check-in date.");
-                }
+//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//                String dateString = checkInSelect.getCheckindate();
+//                LocalDateTime datetime = LocalDateTime.parse(dateString, formatter);
+//                LocalDate date = datetime.toLocalDate();
+//                if (date.compareTo(checkInSelect.getCheckoutDate().toLocalDate())>0) {
+//                    throw new Exception("Check-out date cannot be before check-in date.");
+//                }
                 CheckInDao cd = CheckInDao.getInstance();
                 CheckIn checkIn = cd.find(checkInSelect.getId());
                 cd.notBooking(checkIn);

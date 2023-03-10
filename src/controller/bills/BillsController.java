@@ -184,14 +184,14 @@ public class BillsController implements Initializable {
                 refreshForm(null);
                 throw new Exception("Please select a date first!");
             }
-            if (cbCheckInID.getValue().getCheckindate().after(java.sql.Date.valueOf(dpCheckOutDate.getValue()))) {
-                refreshForm(null);
-                throw new Exception("Check-out date cannot be before check-in date.");
-            }
+//            if (cbCheckInID.getValue().getCheckindate().after(java.sql.Date.valueOf(dpCheckOutDate.getValue()))) {
+//                refreshForm(null);
+//                throw new Exception("Check-out date cannot be before check-in date.");
+//            }
 
             Date checkOutDate = java.sql.Date.valueOf(dpCheckOutDate.getValue());
             long numberofDays = 0;
-            numberofDays = ChronoUnit.DAYS.between(cbCheckInID.getValue().getCheckindate().toLocalDate(), dpCheckOutDate.getValue());
+//            numberofDays = ChronoUnit.DAYS.between(cbCheckInID.getValue().getCheckindate().toLocalDate(), dpCheckOutDate.getValue());
             priceBill = (int) (numberofDays * (int) RoomDao.getInstance().getPriceByRoomTypeId(cbCheckInID.getValue().getRoom_id()));
 
             Bills bills = new Bills(null, checkin_id, priceBill, checkOutDate, payments);

@@ -6,11 +6,11 @@ public class CheckIn {
     private Integer id;
     private int customer_id;
     private int room_id;
-    private Date checkindate;
+    private String checkindate;
     private Date checkoutDate;
     private String note;
 
-    public CheckIn(Integer id, int customer_id, int room_id, Date checkindate, Date checkoutDate, String note) {
+    public CheckIn(Integer id, int customer_id, int room_id, String checkindate, Date checkoutDate, String note) {
         this.id = id;
         this.customer_id = customer_id;
         this.room_id = room_id;
@@ -46,11 +46,16 @@ public class CheckIn {
         return this;
     }
 
-    public Date getCheckindate() {
+    public CheckIn setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getCheckindate() {
         return checkindate;
     }
 
-    public CheckIn setCheckindate(Date checkindate) {
+    public CheckIn setCheckindate(String checkindate) {
         this.checkindate = checkindate;
         return this;
     }

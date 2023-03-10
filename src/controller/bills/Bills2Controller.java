@@ -20,22 +20,30 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.DateTimeException;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
-public class Bills2Controller extends Component implements Initializable{
+public class Bills2Controller extends Component implements Initializable {
     public ComboBox<Customer> cbCheckInID;
     public Label lbCusID;
     public Label lbRoomID;
     public TextField lbPrice;
     public DatePicker dpCheckOutDate;
     public ComboBox<String> cbPayment;
-    public TableView<Bills2> tbBill;
-    public TableColumn<Bills2, Integer> cID;
-    public TableColumn<Bills2, Integer> cCusID;
-    public TableColumn<Bills2, Double> cPrice;
-    public TableColumn<Bills2, Date> cCheckOutDate;
-    public TableColumn<Bills2, String> cPayMentType;
+    public TableView<Bills3> tbBill;
+    public TableColumn<Bills3, Integer> cID;
+    public TableColumn<Bills3, Integer> cCusID;
+    public TableColumn<Bills3, Double> cPrice;
+    public TableColumn<Bills3, String> cCheckOutDate;
+    public TableColumn<Bills3, Date> cCheckInDate;
+    public TableColumn<Bills3, Date> cPayMentType;
+    public TableColumn<Bills3, String> cStatus;
 
     public void goToHome(ActionEvent actionEvent) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../../resources/home1.fxml"));
@@ -69,21 +77,24 @@ public class Bills2Controller extends Component implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.dpCheckOutDate.setDisable(true);
         cID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        cCusID.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        cCusID.setCellValueFactory(new PropertyValueFactory<>("name"));
         cPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         cCheckOutDate.setCellValueFactory(new PropertyValueFactory<>("checkoutDate"));
+        cCheckInDate.setCellValueFactory(new PropertyValueFactory<>("checkinDate"));
         cPayMentType.setCellValueFactory(new PropertyValueFactory<>("payments"));
+        cStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        BillsDao2 bd = BillsDao2.getInstance();
-        ArrayList<Bills2> list = bd.getAll();
+        BillsDao3 bd = BillsDao3.getInstance();
+        ArrayList<Bills3> list = bd.getAll();
         tbBill.getItems().addAll(list);
         tbBill.refresh();
 
         tbBill.setOnMouseClicked(event -> {
-            Bills2 bills2Select = tbBill.getSelectionModel().getSelectedItem();
-            if (bills2Select != null) {
-
+            Bills3 bills3Select = tbBill.getSelectionModel().getSelectedItem();
+            if (bills3Select != null) {
+                lbCusID.setText(bills3Select.getName());
             }
         });
 
@@ -99,7 +110,7 @@ public class Bills2Controller extends Component implements Initializable{
         }
         cbCheckInID.setOnAction(event -> {
             Customer customer = cbCheckInID.getValue();
-            if (customer!=null) {
+            if (customer != null) {
                 lbCusID.setText(customer.getName());
                 CheckIn checkIn = CheckInDao.getInstance().findByCusID(customer.getId());
                 RoomInfo roomInfo = RoomDao.getInstance().find(checkIn.getRoom_id());
@@ -118,7 +129,7 @@ public class Bills2Controller extends Component implements Initializable{
         tbBill.getSelectionModel().clearSelection();
         refreshForm(null);
         cbCheckInID.getSelectionModel().clearSelection();
-        tbBill.getItems().setAll(BillsDao2.getInstance().getAll());
+        tbBill.getItems().setAll(BillsDao3.getInstance().getAll());
         tbBill.refresh();
     }
 
@@ -134,48 +145,105 @@ public class Bills2Controller extends Component implements Initializable{
     public void addBill(ActionEvent event) {
         try {
             Integer customer_id = cbCheckInID.getValue().getId();
-            Integer priceBill ;
+            Float priceBill = null;
             CheckIn checkIn = CheckInDao.getInstance().findByCusID(customer_id);
             String payments = cbPayment.getValue();
-            if (dpCheckOutDate.getValue() == null) {
-                refreshForm(null);
-                throw new Exception("Please select a date first!");
-            }
-            if (checkIn.getCheckindate().toLocalDate().compareTo((dpCheckOutDate.getValue()))>=0) {
-                refreshForm(null);
-                throw new Exception("Check-out date cannot be before check-in date.");
-            }
+            // Tiến hành checkout
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formatDateTime = now.format(formatter);
+            String checkOutDate = formatDateTime;
 
-            Date checkOutDate = java.sql.Date.valueOf(dpCheckOutDate.getValue());
-            long numberofDays = 0;
-            numberofDays = ChronoUnit.DAYS.between(checkIn.getCheckindate().toLocalDate(), dpCheckOutDate.getValue());
-            priceBill = (int) (numberofDays * (int) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice());
+            String checkInDate = checkIn.getCheckindate();
+            String status = "unpaid";
 
-            Bills2 bills2 = new Bills2(null, customer_id, priceBill, checkOutDate, payments);
-            BillsDao2 bd = BillsDao2.getInstance();
-            bd.create(bills2);
+            // tính số ngày số giờ
+            DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0");
+            try {
+                LocalDateTime datetimeCheckIn = LocalDateTime.parse(checkInDate, formatter2);
+                LocalDateTime datetimeCheckOut = LocalDateTime.parse(formatDateTime, formatter1);
+                Duration duration = Duration.between(datetimeCheckIn, datetimeCheckOut);
 
-            CheckInDao cd = CheckInDao.getInstance();
-            CheckIn checkIn1 = cd.findByCusID(bills2.getCustomer_id());
-            System.out.println(bills2.getCustomer_id());
-            System.out.println(checkIn1.getId());
+                long numberofDays = duration.toDays();
+                long numberofHours = duration.toHours();
+
+//                System.out.println(numberofHours);
+//                System.out.println(numberofDays);
+
+                LocalTime currentTime = LocalTime.now();
+                LocalTime twelvePM = LocalTime.of(12, 0);
+
+                if (currentTime.isBefore(twelvePM) && numberofDays == 0) {
+                    priceBill = (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice();
+                } else {
+                    if (numberofDays == 0) {
+                        priceBill = (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice();
+                    } else {
+                        if (numberofHours <= 7 && numberofHours <=4 ) {
+                            priceBill = (float) ((float) numberofDays * (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() + (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() * 0.5);
+                        } else if (numberofHours<=3) {
+                            priceBill = (float) ((float) numberofDays * (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() + (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() * 0.3);
+                        } else if (datetimeCheckOut.toLocalTime().isBefore(LocalTime.of(14, 0))) {
+                            priceBill = (float) ((float) numberofDays * (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() + (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() * 0.3);
+                        } else if (datetimeCheckOut.toLocalTime().isBefore(LocalTime.of(18, 0)) && datetimeCheckOut.toLocalTime().isAfter(LocalTime.of(14, 0))) {
+                            priceBill = (float) ((float) numberofDays * (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() + (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() * 0.5);
+                        } else if (datetimeCheckOut.toLocalTime().isAfter(LocalTime.of(18, 0))) {
+                            priceBill = (float) ((float) numberofDays * (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice() + (float) RoomDao.getInstance().find(checkIn.getRoom_id()).getPrice());
+                        }
+                    }
+                }
+                Bills2 bills2 = new Bills2(null, customer_id, priceBill, checkInDate, checkOutDate, payments, status);
+                BillsDao2 bd = BillsDao2.getInstance();
+                bd.create(bills2);
+
+                CheckInDao cd = CheckInDao.getInstance();
+                CheckIn checkIn1 = cd.findByCusID(bills2.getCustomer_id());
+
 //             đổi booked thành not booked
-            cd.notBooking(checkIn1);
+                cd.notBooking(checkIn1);
 //             xóa checkin
-            cd.delete(checkIn1);
+                cd.delete(checkIn1);
+            } catch (DateTimeParseException e){
+                System.out.println(e.getMessage());
+            }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(e.getMessage());
             alert.show();
         }
         refreshForm(null);
-        tbBill.getItems().setAll(BillsDao2.getInstance().getAll());
+        tbBill.getItems().setAll(BillsDao3.getInstance().getAll());
         tbBill.refresh();
         cbCheckInID.getItems().setAll(CusDao.getInstance().getAll());
         cbCheckInID.getItems().setAll(CusDao.getInstance().getAllCusCheckIn());
     }
 
     public void printBills(ActionEvent event) throws IOException {
-
+        Bills3 bills3select = tbBill.getSelectionModel().getSelectedItem();
+        if (bills3select == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("Please select a bill to payments.");
+            alert.showAndWait();
+        } else {
+            try {
+                BillsDao3 billsDao3 = BillsDao3.getInstance();
+                billsDao3.payments(bills3select);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Payment");
+                alert.setContentText("You have successfully paid!");
+                alert.show();
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(e.getMessage());
+                alert.show();
+            }
+        }
+        refreshForm(null);
+        tbBill.getItems().setAll(BillsDao3.getInstance().getAll());
+        tbBill.refresh();
+        cbCheckInID.getItems().setAll(CusDao.getInstance().getAll());
+        cbCheckInID.getItems().setAll(CusDao.getInstance().getAllCusCheckIn());
     }
 }

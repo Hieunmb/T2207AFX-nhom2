@@ -35,10 +35,12 @@ public class BillsDao2 implements DAOInterface<Bills2> {
             while (rs.next()) {
                 Integer id = rs.getInt("id");
                 Integer customer_id = rs.getInt("customer_id");
-                Integer price = rs.getInt("price");
+                Float price = rs.getFloat("price");
+                String checkindate = rs.getString("checkinDate");
                 String payment = rs.getString("payments");
-                Date checkoutdate = rs.getDate("checkoutDate");
-                Bills2 b = new Bills2(id, customer_id, price, checkoutdate, payment);
+                String checkoutdate = rs.getString("checkoutDate");
+                String status = rs.getString("status");
+                Bills2 b = new Bills2(id, customer_id, price, checkindate, checkoutdate, payment, status);
                 listBills.add(b);
             }
         } catch (Exception e) {
@@ -52,7 +54,7 @@ public class BillsDao2 implements DAOInterface<Bills2> {
         try {
             Database db = Database.getInstance();
             Statement stt = db.getStatement();
-            String sql = "insert into bill(customer_id, price, checkoutDate, payments) values('" + bills2.getCustomer_id() + "','" + bills2.getPrice() + "','" + bills2.getCheckoutDate() + "','" + bills2.getPayments() + "')";
+            String sql = "insert into bill(customer_id, price, checkinDate, checkoutDate, payments, status) values('" + bills2.getCustomer_id() + "','" + bills2.getPrice() + "','" + bills2.getCheckinDate() + "','" + bills2.getCheckoutDate() + "','" + bills2.getPayments() + "','" + bills2.getStatus() +"')";
             if (stt.executeUpdate(sql) > 0) {
                 return true;
             }
